@@ -1,0 +1,21 @@
+import java.io.*;
+import java.net.*;
+
+public class ChatClient {
+    private Socket socket;
+    private PrintWriter out;
+
+    public ChatClient(String address, int port) throws IOException {
+        socket = new Socket(address, port);
+        out = new PrintWriter(socket.getOutputStream(), true);
+    }
+
+    public void sendMessage(String message) {
+        out.println(message);
+    }
+
+    public static void main(String[] args) throws IOException {
+        ChatClient client = new ChatClient("localhost", 12345);
+        client.sendMessage("Hello, world!");
+    }
+}
