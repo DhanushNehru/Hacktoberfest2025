@@ -1,0 +1,9 @@
+consider you are a supplier for a shoe company
+shoe company accepts shoes only if a pair has atmost size difference of 1
+you are given 3 sizes which are 4 5 6 and 2 shoes of each size.
+
+find out the probability to select 3 out of these 6 shoes such that it consista of an acceptable pair.
+
+
+this is a classic quant question and i hope you accept my request and use tags hacktoberfest2024-accepted too for the support.
+thanks
