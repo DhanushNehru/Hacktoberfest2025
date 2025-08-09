@@ -1,0 +1,4 @@
+{
+    "java.debug.settings.onBuildFailureProceed": true,
+    "jdk.runConfig.vmOptions": "--enable-preview --source 22"
+}
