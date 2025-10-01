@@ -39,4 +39,4 @@ It is ideal for industrial safety monitoring, traffic safety, or workplace compl
 
 ## 🚀 Getting Started
 
-// Hope This help 🤞
+Hope this helps! 🤞
