@@ -17,7 +17,7 @@ Hacktoberfest 2025 OPEN FIRST Pull Request - SUPPORT OPEN SOURCE
 
 <div align="center">
 
-<img src="https://img.shields.io/badge/hacktoberfest-2024-greenviolet" alt="Hacktober Badge"/>
+<img src="https://img.shields.io/badge/hacktoberfest-2025-greenviolet" alt="Hacktober Badge"/>
  <img src="https://img.shields.io/static/v1?label=%F0%9F%8C%9F&message=If%20Useful&style=style=flat&color=BC4E99" alt="Star Badge"/>
  <a href="https://github.com/DhanushNehru" ><img src="https://img.shields.io/badge/Contributions-welcome-violet.svg?style=flat&logo=git" alt="Contributions" /></a>
 
@@ -178,4 +178,4 @@ Keep in mind that the repo has hacktoberfest topic.
 
 In the cloud-free development environment where you can directly start coding.
 
-You can use Gitpod in the cloud [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/DhanushNehru/Hacktoberfest2024/)
+You can use Gitpod in the cloud [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/DhanushNehru/Hacktoberfest2025/)
