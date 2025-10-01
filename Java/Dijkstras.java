@@ -2,72 +2,95 @@ import java.util.*;
 
 class Dijkstras {
     private int vertices;
-    private int[][] graph;
+    private List<List<Node>> adjList;
+    private boolean directed;
 
-    Dijkstras(int v) {
-        vertices = v;
-        graph = new int[v][v];
+    // Node class for adjacency list
+    static class Node {
+        int vertex, weight;
+        Node(int v, int w) {
+            vertex = v;
+            weight = w;
+        }
+    }
+
+    Dijkstras(int v, boolean directed) {
+        this.vertices = v;
+        this.directed = directed;
+        adjList = new ArrayList<>();
+        for (int i = 0; i < v; i++) {
+            adjList.add(new ArrayList<>());
+        }
     }
 
     void addEdge(int src, int dest, int weight) {
-        graph[src][dest] = weight;
-        graph[dest][src] = weight; // for undirected
+        adjList.get(src).add(new Node(dest, weight));
+        if (!directed) { // if undirected, add reverse edge
+            adjList.get(dest).add(new Node(src, weight));
+        }
     }
 
     void dijkstra(int start) {
         int[] dist = new int[vertices];
-        boolean[] visited = new boolean[vertices];
-
         Arrays.fill(dist, Integer.MAX_VALUE);
         dist[start] = 0;
 
-        for (int count = 0; count < vertices - 1; count++) {
-            int u = minDistance(dist, visited);
-            visited[u] = true;
+        PriorityQueue<Node> pq = new PriorityQueue<>(Comparator.comparingInt(n -> n.weight));
+        pq.add(new Node(start, 0));
 
-            for (int v = 0; v < vertices; v++) {
-                if (!visited[v] && graph[u][v] != 0 && dist[u] != Integer.MAX_VALUE
-                        && dist[u] + graph[u][v] < dist[v]) {
-                    dist[v] = dist[u] + graph[u][v];
+        while (!pq.isEmpty()) {
+            Node current = pq.poll();
+            int u = current.vertex;
+
+            for (Node neighbor : adjList.get(u)) {
+                int v = neighbor.vertex;
+                int weight = neighbor.weight;
+
+                if (dist[u] + weight < dist[v]) {
+                    dist[v] = dist[u] + weight;
+                    pq.add(new Node(v, dist[v]));
                 }
             }
         }
 
-        printSolution(dist);
+        printSolution(dist, start);
     }
 
-    int minDistance(int[] dist, boolean[] visited) {
-        int min = Integer.MAX_VALUE, minIndex = -1;
-        for (int v = 0; v < vertices; v++) {
-            if (!visited[v] && dist[v] <= min) {
-                min = dist[v];
-                minIndex = v;
-            }
-        }
-        return minIndex;
-    }
-
-    void printSolution(int[] dist) {
-        System.out.println("Vertex \t Distance from Source");
+    void printSolution(int[] dist, int start) {
+        System.out.println("Shortest distances from vertex " + start + ":");
         for (int i = 0; i < vertices; i++) {
-            System.out.println(i + " \t " + dist[i]);
+            System.out.println("To " + i + " -> " + (dist[i] == Integer.MAX_VALUE ? "INF" : dist[i]));
         }
     }
 
     public static void main(String[] args) {
-        Dijkstras g = new Dijkstras(5);
-        g.addEdge(0, 1, 10);
-        g.addEdge(0, 4, 5);
-        g.addEdge(1, 2, 1);
-        g.addEdge(1, 4, 2);
-        g.addEdge(2, 3, 4);
-        g.addEdge(3, 0, 7);
-        g.addEdge(3, 2, 6);
-        g.addEdge(4, 1, 3);
-        g.addEdge(4, 2, 9);
-        g.addEdge(4, 3, 2);
+        Scanner sc = new Scanner(System.in);
 
-        g.dijkstra(0);
+        // Input graph details
+        System.out.print("Enter number of vertices: ");
+        int v = sc.nextInt();
+
+        System.out.print("Enter number of edges: ");
+        int e = sc.nextInt();
+
+        System.out.print("Is the graph directed? (yes=1 / no=0): ");
+        boolean directed = sc.nextInt() == 1;
+
+        Dijkstras g = new Dijkstras(v, directed);
+
+        System.out.println("Enter edges in format: src dest weight");
+        for (int i = 0; i < e; i++) {
+            int src = sc.nextInt();
+            int dest = sc.nextInt();
+            int w = sc.nextInt();
+            g.addEdge(src, dest, w);
+        }
+
+        System.out.print("Enter source vertex: ");
+        int src = sc.nextInt();
+
+        g.dijkstra(src);
+        sc.close();
     }
 }
 
