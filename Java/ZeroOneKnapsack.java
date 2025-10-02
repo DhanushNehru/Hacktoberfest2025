@@ -63,23 +63,57 @@ public class ZeroOneKnapsack {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         
-        System.out.print("Enter the number of items: ");
-        int n = scanner.nextInt();
+        int n = 0;
+        while (true) {
+            System.out.print("Enter the number of items: ");
+            n = scanner.nextInt();
+            if (n > 0) {
+                break;
+            } else {
+                System.out.println("Number of items must be greater than 0. Please try again.");
+            }
+        }
         
-        System.out.print("Enter the maximum weight capacity: ");
-        int W = scanner.nextInt();
+        int W = 0;
+        while (true) {
+            System.out.print("Enter the maximum weight capacity: ");
+            W = scanner.nextInt();
+            if (W > 0) {
+                break;
+            } else {
+                System.out.println("Maximum weight capacity must be greater than 0. Please try again.");
+            }
+        }
         
         int[] values = new int[n];
         int[] weights = new int[n];
         
         System.out.println("Enter the values of the items:");
         for (int i = 0; i < n; i++) {
-            values[i] = scanner.nextInt();
+            while (true) {
+                System.out.print("Value of item " + (i + 1) + ": ");
+                int value = scanner.nextInt();
+                if (value >= 0) {
+                    values[i] = value;
+                    break;
+                } else {
+                    System.out.println("Value must be non-negative. Please try again.");
+                }
+            }
         }
         
         System.out.println("Enter the weights of the items:");
         for (int i = 0; i < n; i++) {
-            weights[i] = scanner.nextInt();
+            while (true) {
+                System.out.print("Weight of item " + (i + 1) + ": ");
+                int weight = scanner.nextInt();
+                if (weight >= 0) {
+                    weights[i] = weight;
+                    break;
+                } else {
+                    System.out.println("Weight must be non-negative. Please try again.");
+                }
+            }
         }
         
         int maxValue = knapsack(W, weights, values, n);
