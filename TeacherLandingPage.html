@@ -1,0 +1,319 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educator's Hub</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide-react@latest/dist/lucide-react.js"></script>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+        }
+        .hero-section {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://placehold.co/1600x900/10b981/ffffff?text=Empowering+Educators');
+            background-size: cover;
+            background-position: center;
+        }
+        .nav-link {
+            transition: color 0.3s, border-bottom-color 0.3s;
+        }
+        .nav-link:hover {
+            color: #4f46e5; /* indigo-600 */
+        }
+        .mobile-nav-link:hover {
+            background-color: #eef2ff; /* indigo-50 */
+        }
+        .card-hover {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <div class="bg-indigo-600 text-white p-2 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-user"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><circle cx="12" cy="8" r="2"/><path d="M15 13a3 3 0 1 0-6 0"/></svg>
+                    </div>
+                    <a href="#" class="text-2xl font-bold text-indigo-600">EduHub</a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#classes" class="nav-link text-gray-600">My Classes</a>
+                    <a href="#deadlines" class="nav-link text-gray-600">Deadlines</a>
+                    <a href="#communities" class="nav-link text-gray-600">Communities</a>
+                    <a href="#resources" class="nav-link text-gray-600">Resources</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-slate-600 focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="menu-open-icon"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="menu-close-icon" class="hidden"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4">
+                <a href="#classes" class="mobile-nav-link block py-2 px-4 text-sm text-gray-600 rounded-lg">My Classes</a>
+                <a href="#deadlines" class="mobile-nav-link block py-2 px-4 text-sm text-gray-600 rounded-lg">Deadlines</a>
+                <a href="#communities" class="mobile-nav-link block py-2 px-4 text-sm text-gray-600 rounded-lg">Communities</a>
+                <a href="#resources" class="mobile-nav-link block py-2 px-4 text-sm text-gray-600 rounded-lg">Resources</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section text-white py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">Empowering Educators, Inspiring Students</h1>
+                <p class="text-lg md:text-xl text-indigo-100 mb-8 max-w-3xl mx-auto">Manage your classes, track student progress, and access all the teaching resources you need in one place.</p>
+                <a href="#classes" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">Go to Dashboard</a>
+            </div>
+        </section>
+
+        <!-- Key Dates & Deadlines Section -->
+        <section id="deadlines" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Key Dates & Deadlines</h2>
+                    <p class="text-slate-500 mt-2">Stay on top of important submission dates and events.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Deadline Card 1 -->
+                    <div class="card-hover bg-slate-50 rounded-xl overflow-hidden shadow-lg border border-slate-200">
+                        <div class="p-6">
+                            <div class="flex items-center space-x-4 mb-4">
+                               <div class="bg-red-100 text-red-600 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg></div>
+                               <div>
+                                   <p class="font-bold text-lg text-slate-800">Mid-Term Grades Due</p>
+                                   <p class="text-sm text-slate-500">October 17, 2025</p>
+                               </div>
+                            </div>
+                            <p class="text-slate-600 mb-4">Please submit all mid-term grades for your classes by the end of the day.</p>
+                            <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-800 transition">Submit Grades &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Deadline Card 2 -->
+                    <div class="card-hover bg-slate-50 rounded-xl overflow-hidden shadow-lg border border-slate-200">
+                        <div class="p-6">
+                             <div class="flex items-center space-x-4 mb-4">
+                               <div class="bg-blue-100 text-blue-600 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                               <div>
+                                   <p class="font-bold text-lg text-slate-800">Parent-Teacher Conferences</p>
+                                   <p class="text-sm text-slate-500">October 29, 2025</p>
+                               </div>
+                            </div>
+                            <p class="text-slate-600 mb-4">Prepare for evening conferences with parents to discuss student progress.</p>
+                            <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-800 transition">View Schedule &rarr;</a>
+                        </div>
+                    </div>
+                     <!-- Deadline Card 3 -->
+                    <div class="card-hover bg-slate-50 rounded-xl overflow-hidden shadow-lg border border-slate-200">
+                        <div class="p-6">
+                             <div class="flex items-center space-x-4 mb-4">
+                               <div class="bg-green-100 text-green-600 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 2 5 5v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h11Z"/><path d="M12.5 10a2.5 2.5 0 0 1 5 0c0 3.5-2.5 6-2.5 6s-2.5-2.5-2.5-6Z"/><path d="m10.5 5.5 8 8"/></svg></div>
+                               <div>
+                                   <p class="font-bold text-lg text-slate-800">Professional Development</p>
+                                   <p class="text-sm text-slate-500">November 11, 2025</p>
+                               </div>
+                            </div>
+                            <p class="text-slate-600 mb-4">A full day of workshops on new classroom tech. No classes are scheduled.</p>
+                            <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-800 transition">See Sessions &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Your Classes -->
+        <section id="classes" class="py-16 md:py-24 bg-slate-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Your Classes</h2>
+                    <p class="text-slate-500 mt-2">A quick overview of your current teaching assignments.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Class Card 1 -->
+                    <div class="card-hover bg-white p-6 rounded-xl shadow-md border border-slate-200 text-center">
+                        <div class="bg-indigo-100 text-indigo-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                        </div>
+                        <h3 class="font-bold text-xl mb-2">ENG-101: Composition</h3>
+                        <p class="text-slate-600 text-sm">Grade 9 / 124 Students</p>
+                    </div>
+                     <!-- Class Card 2 -->
+                    <div class="card-hover bg-white p-6 rounded-xl shadow-md border border-slate-200 text-center">
+                        <div class="bg-rose-100 text-rose-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M12 18a6 6 0 0 0 6-6 6 6 0 0 0-6-6"/><path d="M12 18a6 6 0 0 1-6-6 6 6 0 0 1 6-6"/></svg>
+                        </div>
+                        <h3 class="font-bold text-xl mb-2">SCI-203: Biology</h3>
+                        <p class="text-slate-600 text-sm">Grade 10 / 118 Students</p>
+                    </div>
+                     <!-- Class Card 3 -->
+                    <div class="card-hover bg-white p-6 rounded-xl shadow-md border border-slate-200 text-center">
+                         <div class="bg-amber-100 text-amber-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="4"/><line x1="4" y1="12" x2="20" y2="12"/></svg>
+                        </div>
+                        <h3 class="font-bold text-xl mb-2">MATH-310: AP Calculus</h3>
+                        <p class="text-slate-600 text-sm">Grade 12 / 28 Students</p>
+                    </div>
+                    <!-- Class Card 4 -->
+                    <div class="card-hover bg-white p-6 rounded-xl shadow-md border border-slate-200 text-center">
+                         <div class="bg-teal-100 text-teal-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                         </div>
+                        <h3 class="font-bold text-xl mb-2">HIST-201: World History</h3>
+                        <p class="text-slate-600 text-sm">Grade 10 / 135 Students</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Educator Communities Section -->
+        <section id="communities" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Educator Communities</h2>
+                    <p class="text-slate-500 mt-2">Collaborate with your colleagues and share best practices.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Community Card 1 -->
+                    <div class="card-hover rounded-xl overflow-hidden shadow-lg border border-slate-200">
+                        <img src="https://placehold.co/600x400/ec4899/ffffff?text=STEM+PLC" alt="STEM PLC" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">STEM Department PLC</h3>
+                            <p class="text-slate-600">Monthly meetings to discuss curriculum, new labs, and cross-subject projects.</p>
+                        </div>
+                    </div>
+                     <!-- Community Card 2 -->
+                    <div class="card-hover rounded-xl overflow-hidden shadow-lg border border-slate-200">
+                        <img src="https://placehold.co/600x400/8b5cf6/ffffff?text=Humanities+Dept" alt="Humanities Department" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Humanities Department</h3>
+                            <p class="text-slate-600">Collaborate on lesson plans for English, History, and the Arts. Share resources and strategies.</p>
+                        </div>
+                    </div>
+                     <!-- Community Card 3 -->
+                    <div class="card-hover rounded-xl overflow-hidden shadow-lg border border-slate-200">
+                        <img src="https://placehold.co/600x400/22c55e/ffffff?text=Teacher+Support" alt="New Teacher Support Group" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">New Teacher Support Group</h3>
+                            <p class="text-slate-600">A welcoming space for teachers in their first few years to ask questions and share experiences.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teacher Toolkit Section -->
+        <section id="resources" class="py-16 md:py-24 bg-slate-50">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Teacher Toolkit</h2>
+                    <p class="text-slate-500 mt-2">Your essential tools for the classroom.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <a href="#" class="card-hover bg-white p-6 rounded-xl shadow-md border border-slate-200 text-center flex flex-col items-center justify-center">
+                        <div class="bg-indigo-100 text-indigo-600 rounded-full p-4 mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+                        <span class="font-semibold text-slate-700">Lesson Planner</span>
+                    </a>
+                    <a href="#" class="card-hover bg-white p-6 rounded-xl shadow-md border border-slate-200 text-center flex flex-col items-center justify-center">
+                        <div class="bg-indigo-100 text-indigo-600 rounded-full p-4 mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                        <span class="font-semibold text-slate-700">Student Roster</span>
+                    </a>
+                    <a href="#" class="card-hover bg-white p-6 rounded-xl shadow-md border border-slate-200 text-center flex flex-col items-center justify-center">
+                        <div class="bg-indigo-100 text-indigo-600 rounded-full p-4 mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21a9 9 0 0 0 9-9 9 9 0 0 0-9-9 9 9 0 0 0-9 9 9 9 0 0 0 9 9z"/><path d="m9 12 2 2 4-4"/></svg></div>
+                        <span class="font-semibold text-slate-700">Grading System</span>
+                    </a>
+                    <a href="#" class="card-hover bg-white p-6 rounded-xl shadow-md border border-slate-200 text-center flex flex-col items-center justify-center">
+                        <div class="bg-indigo-100 text-indigo-600 rounded-full p-4 mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9.09 9 3 3L15 9"/></svg></div>
+                        <span class="font-semibold text-slate-700">IT Helpdesk</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-slate-300">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                    <h3 class="font-bold text-white text-lg mb-4">EduHub</h3>
+                    <p class="text-sm">Your central hub for teaching resources and class management.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-white text-lg mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition">Contact</a></li>
+                        <li><a href="#" class="hover:text-white transition">School Directory</a></li>
+                        <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                 <div>
+                    <h3 class="font-bold text-white text-lg mb-4">Connect With Us</h3>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="#" class="text-slate-400 hover:text-white transition"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-twitter"><path d="M22 4s-.7 2.1-2 3.4c1.6 1.4 3.3 4.9 3.3 4.9s-1.4-.6-2.8-.9c-1.2 2.2-2.7 3.8-4.5 5.2-1.7 1.4-3.6 2.3-5.5 2.6C8 21.5 5 21.5 3 20c-2-1.5-2.5-4-2.5-4s1.4 .5 2.8 .5c1.4 0 2.8-.5 2.8-.5s-1.4 0-2.8-1.5c-1.4-1.5-2.8-4-2.8-4s.7 .5 1.4 .5c.7 0 1.4-.5 1.4-.5s-2.1-1.4-2.8-4c-.7-2.6 0-5.2 0-5.2s2.1 1.4 4.2 1.4c0-1.4.7-2.8 1.4-4.2C11.5 3.5 13 3 13 3s3.5 1.4 4.2 4.2c.7 2.8 0 5.6 0 5.6z"/></svg></a>
+                        <a href="#" class="text-slate-400 hover:text-white transition"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+                         <a href="#" class="text-slate-400 hover:text-white transition"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-slate-700 pt-6 text-center text-sm">
+                <p>&copy; 2025 EduHub School District. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const openIcon = document.getElementById('menu-open-icon');
+        const closeIcon = document.getElementById('menu-close-icon');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            openIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                 mobileMenu.classList.add('hidden');
+                 openIcon.classList.remove('hidden');
+                 closeIcon.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
+
