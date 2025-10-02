@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Mulish:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2d6a4f; /* Forest Green */
+            --primary-hover: #1b4332;
+            --secondary-color: #e57c50; /* Terracotta Accent */
+            --bg-light: #f4f1ea; /* Sandy Beige */
+            --bg-dark: #2a2a2a;
+            --text-dark: #403d39; /* Dark Brown/Gray */
+            --text-light: #ffffff;
+            --text-muted: #6c757d;
+            --border-radius: 0.75rem; /* 12px */
+            --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Mulish', sans-serif;
+            color: var(--text-dark);
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--primary-color);
+        }
+        
+        h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin: 0 auto 4rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.9rem 2.5rem;
+            border-radius: var(--border-radius);
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            box-shadow: 0 4px 10px rgba(229, 124, 80, 0.4);
+        }
+
+        .btn-primary:hover {
+            background-color: #d96f43;
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(229, 124, 80, 0.4);
+        }
+
+        .main-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 2.5rem;
+            font-weight: 600;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+            transition: color 0.3s, border-color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+
+        #hero {
+            height: 100vh;
+            color: var(--text-light);
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://placehold.co/1920x1080/2d6a4f/ffffff?text=Mountain+Vista') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+        }
+        
+        #hero h1 {
+            font-size: 4.5rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        #hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            color: var(--text-light);
+            opacity: 0.9;
+        }
+        
+        .search-form {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            max-width: 800px;
+            width: 100%;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .search-form input {
+            flex: 1;
+            padding: 0.8rem 1.2rem;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Mulish', sans-serif;
+            font-size: 1rem;
+            min-width: 150px;
+        }
+
+        .search-form .btn {
+            flex-shrink: 0;
+        }
+        
+        #destinations {
+            background-color: var(--bg-light);
+        }
+        
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .destination-card {
+            background-color: #fff;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .destination-card .image-container {
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+        }
+        
+        .destination-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .destination-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .destination-content {
+            padding: 1.5rem;
+        }
+        
+        .destination-content h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .destination-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .price-tag {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            padding: 0.4rem 0.8rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        /* Why Choose Us Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .feature-item .icon {
+            background-color: #eaf1ed;
+            color: var(--primary-color);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-item h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+        }
+        
+        #cta {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            text-align: center;
+            border-radius: var(--border-radius);
+            padding: 5rem 2rem;
+        }
+
+        #cta h2 {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+        
+        #cta .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+        
+        /* Testimonials Section */
+        #testimonials {
+            background-color: var(--bg-light);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            position: relative;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .testimonial-card::before {
+            content: '“';
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+            font-size: 5rem;
+            color: var(--primary-color);
+            opacity: 0.1;
+            font-family: 'Playfair Display', serif;
+        }
+
+
+        .testimonial-card p.quote {
+            font-style: normal;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+        }
+
+        .traveler-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .traveler-info img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 1rem;
+            object-fit: cover;
+        }
+
+        .traveler-info h4 {
+            font-family: 'Mulish', sans-serif;
+            font-weight: 700;
+            margin: 0;
+            color: var(--primary-color);
+        }
+        
+        .main-footer {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            text-decoration: none;
+            color: var(--text-light);
+        }
+        
+        .footer-links a {
+            color: var(--text-light);
+            margin: 0 1rem;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .main-footer p {
+            margin-top: 2rem;
+            opacity: 0.6;
+            color: var(--text-light);
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 3.5rem; }
+            h2 { font-size: 2.5rem; }
+            section { padding: 4rem 0; }
+            
+            .nav-links { display: none; }
+
+            .search-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container navbar">
+            <a href="#" class="logo">Wanderlust</a>
+            <nav class="nav-links">
+                <a href="#hero">Home</a>
+                <a href="#destinations">Destinations</a>
+                <a href="#testimonials">Reviews</a>
+                <a href="#cta">Book Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <h1>Your Journey Begins Here</h1>
+                <p>Discover breathtaking destinations and create unforgettable memories. The world is waiting for you.</p>
+                <form class="search-form">
+                    <input type="text" placeholder="Where to? (e.g., Paris, Kyoto)">
+                    <input type="date" placeholder="Date">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="destinations">
+            <div class="container">
+                <h2>Popular Destinations</h2>
+                <p class="section-subtitle">Handpicked locations that promise adventure, relaxation, and memories that will last a lifetime.</p>
+                <div class="destinations-grid">
+                    <div class="destination-card">
+                        <div class="image-container">
+                            <img src="https://placehold.co/600x400/00b4d8/ffffff?text=Santorini" alt="Santorini, Greece">
+                        </div>
+                        <div class="destination-content">
+                            <h3>Santorini, Greece</h3>
+                            <p>Iconic blue domes, stunning sunsets, and volcanic beaches await you in this Cycladic paradise.</p>
+                        </div>
+                        <div class="price-tag">From $1200</div>
+                    </div>
+                    <div class="destination-card">
+                        <div class="image-container">
+                            <img src="https://placehold.co/600x400/fb8500/ffffff?text=Kyoto" alt="Kyoto, Japan">
+                        </div>
+                        <div class="destination-content">
+                            <h3>Kyoto, Japan</h3>
+                            <p>Experience ancient temples, serene gardens, and the timeless elegance of traditional Japanese culture.</p>
+                        </div>
+                        <div class="price-tag">From $1500</div>
+                    </div>
+                    <div class="destination-card">
+                        <div class="image-container">
+                             <img src="https://placehold.co/600x400/2a9d8f/ffffff?text=Banff" alt="Banff, Canada">
+                        </div>
+                        <div class="destination-content">
+                            <h3>Banff, Canada</h3>
+                            <p>Explore turquoise lakes, majestic mountains, and pristine wilderness in the heart of the Canadian Rockies.</p>
+                        </div>
+                        <div class="price-tag">From $950</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-us">
+            <div class="container">
+                <h2>Why Choose Wanderlust?</h2>
+                <p class="section-subtitle">We don't just sell trips; we craft experiences that you'll cherish for a lifetime.</p>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+                        </div>
+                        <h3>Expert Local Guides</h3>
+                        <p>Our guides are passionate locals who bring you authentic, immersive experiences.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" viewBox="0 0 16 16"><path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/><path d="M7.066 4.76C6.435 4.482 5.576 4.66 5.25 5.25c-.326.59-.146 1.455.484 1.732a3.498 3.498 0 0 0 2.063.344c.346.035.658.158.898.344.24.186.384.44.384.732a.85.85 0 0 1-.85.85c-.347 0-.652-.186-.898-.344a3.498 3.498 0 0 0-2.063-.344c-.63.277-.81 1.142-.484 1.732.326.59 1.185.768 1.816.49 1.143-.497 1.637-1.474 1.637-2.345 0-.97-.59-1.996-1.637-2.345z"/></svg>
+                        </div>
+                        <h3>Tailor-Made Trips</h3>
+                        <p>We craft personalized itineraries that match your unique travel style and interests.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" viewBox="0 0 16 16"><path d="M5.338 1.59a.5.5 0 0 0-.223.67L6.3 3.69a.5.5 0 0 0 .578.223l2.35-1.02a.5.5 0 0 0 .326-.646l-.9-1.899a.5.5 0 0 0-.67-.223L5.338 1.59zm3.515 1.582a.5.5 0 0 0-.423.59l.754 1.583a.5.5 0 0 0 .58.223l2.4-1.03a.5.5 0 0 0 .33-.646l-.9-1.899a.5.5 0 0 0-.67-.223L8.853 3.172zM15.965 7.458a.5.5 0 0 0-.451-.285L11.54 6.84a.5.5 0 0 0-.448.277l-1.455 2.91a.5.5 0 0 0 .015.518l1.088 2.176a.5.5 0 0 0 .518.015l2.91-1.455a.5.5 0 0 0 .277-.448l.333-3.966zM1 8.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm3.5 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/></svg>
+                        </div>
+                        <h3>100% Satisfaction</h3>
+                        <p>Your happiness is our priority. We offer 24/7 support to ensure a worry-free journey.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials">
+            <div class="container">
+                <h2>What Our Travelers Say</h2>
+                <p class="section-subtitle">Real stories from adventurers who trusted us with their journey.</p>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <p class="quote">"The entire trip was seamless and perfectly organized. Wanderlust took care of every detail, allowing us to just enjoy the experience. Can't wait for our next one!"</p>
+                        <div class="traveler-info">
+                            <img src="https://placehold.co/100x100/ffc300/403d39?text=A" alt="Traveler photo">
+                            <div>
+                                <h4>Anna Smith</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="quote">"An unforgettable adventure! The guides were incredibly knowledgeable and friendly. We saw things we never would have found on our own. Highly recommended!"</p>
+                        <div class="traveler-info">
+                            <img src="https://placehold.co/100x100/2d6a4f/ffffff?text=B" alt="Traveler photo">
+                            <div>
+                                <h4>Ben Carter</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cta">
+            <div class="container">
+                <h2>Your Dream Vacation is a Click Away</h2>
+                <p class="section-subtitle">Don't wait to explore the world. Let our experts help you plan the perfect getaway today.</p>
+                <a href="#" class="btn btn-primary">Plan My Trip</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <a href="#" class="footer-logo">Wanderlust</a>
+            <div class="footer-links">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+            </div>
+            <p>&copy; 2025 Wanderlust Travels. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
