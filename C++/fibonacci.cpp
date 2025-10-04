@@ -1,12 +1,28 @@
-def fibonacci(n):
-    dp = [0] * (n + 1)
-    dp[0] = 0
-    dp[1] = 1
-    for i in range(2, n + 1):
-        dp[i] = dp[i - 1] + dp[i - 2]
-    return dp[n]
+#include <iostream>
+using namespace std;
 
-# Test the function
-n = 10
-result = fibonacci(n)
-print("The {}-th Fibonacci number is: {}".format(n, result))
+int main() {
+    int n;
+
+    cout << "Enter the number of terms: ";
+    cin >> n;
+
+    int first = 0, second = 1, next;
+
+    cout << "Fibonacci Series: ";
+
+    for (int i = 0; i < n; ++i) {
+        if (i <= 1)
+            next = i;
+        else {
+            next = first + second;
+            first = second;
+            second = next;
+        }
+        cout << next << " ";
+    }
+
+    cout << endl;
+
+    return 0;
+}
