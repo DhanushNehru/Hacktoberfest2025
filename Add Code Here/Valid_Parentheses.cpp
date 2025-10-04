@@ -6,7 +6,7 @@ public:
             if (c == '{' || c == '(' || c == '[') {
                 st.push(c);
             } else {
-                if (st.empty())
+                if (st.empty())  
                     return false;
                 if ((c == ')' && st.top() != '(') ||
                     (c == '}' && st.top() != '{') ||
