@@ -1,6 +1,6 @@
 class Solution {
 public:
-    bool isValid(string s) {
+      bool isValid(string s) {
         stack<char> st;
         for (int c : s) {
             if (c == '{' || c == '(' || c == '[') {  
