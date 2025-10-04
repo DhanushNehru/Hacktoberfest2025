@@ -5,7 +5,7 @@ public:
         for (int c : s) {
             if (c == '{' || c == '(' || c == '[') {  
                 st.push(c);
-            } else {
+            } else { 
                 if (st.empty())  
                     return false;
                 if ((c == ')' && st.top() != '(') ||
