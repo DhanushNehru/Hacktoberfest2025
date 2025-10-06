@@ -1,0 +1,47 @@
+class Solution {
+    //merge sort
+    public int[] sortArray(int[] nums) {
+        int n=nums.length;
+        int start=0,end=n-1;
+      mergeSort(nums,start,end);
+      return nums;
+    }
+    static void mergeSort(int[] nums,int start,int end){
+        if(start>=end) return;
+        //kaam
+        int mid=start+(end-start)/2;
+        //recursion
+        //left part
+        mergeSort(nums,start,mid);
+        //right part
+        mergeSort(nums,mid+1,end);
+        merge(nums,start,mid,end);
+    }
+  static void merge(int[]nums, int start, int mid, int end){
+    int temp[]=new int[end-start+1];
+    int i=start;//iterator for left part
+    int j=mid+1;//iterator for right part
+    int k=0;//iterator for temp array
+    while(i<=mid && j<=end){
+        if(nums[i]<=nums[j]){
+            //add in temp
+           temp[k++]=nums[i++];}
+           else{
+            temp[k++]=nums[j++];
+           }
+          // k++;
+    }
+ 
+ //for left over parts 
+     while(i<=mid){
+    temp[k++]=nums[i++];
+ }
+     while(j<=end){
+    temp[k++]=nums[j++];
+ }
+ //addong temp elements to original array
+ for(int m=0;m<temp.length;m++){
+    nums[m+start]=temp[m];
+ }
+  }
+}

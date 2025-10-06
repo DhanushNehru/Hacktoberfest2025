@@ -1,0 +1,46 @@
+#Find Maximum Element in Every Sliding Window of Size K in java
+     
+import java.util.*;
+
+public class SlidingWindowMax {
+
+    // Method to find the maximum in each sliding window of size k
+    public static int[] maxSlidingWindow(int[] arr, int k) {
+        if (arr == null || arr.length == 0 || k == 0) return new int[0];  // Handle edge cases
+
+        int n = arr.length;
+        int[] result = new int[n - k + 1];  // To store max of each window
+        Deque<Integer> deque = new LinkedList<>();  // To store indices of useful elements in a window
+
+        for (int i = 0; i < n; i++) {
+            // Remove indices of elements not part of the current window
+            if (!deque.isEmpty() && deque.peek() < i - k + 1) {
+                deque.poll();  // Remove from front
+            }
+
+            // Remove smaller elements as they are useless for the current window
+            while (!deque.isEmpty() && arr[deque.peekLast()] < arr[i]) {
+                deque.pollLast();
+            }
+
+            deque.offer(i);  // Add current element's index
+
+            // If we have processed at least k elements, the front of the deque is the max for the window
+            if (i >= k - 1) {
+                result[i - k + 1] = arr[deque.peek()];
+            }
+        }
+
+        return result;  // Return the array with max values of each window
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 3, -1, -3, 5, 3, 6, 7};  // Example input array
+        int k = 3;  // Window size
+
+        int[] maxInWindows = maxSlidingWindow(arr, k);  // Call the method
+
+        // Print the result
+        System.out.println(Arrays.toString(maxInWindows));
+    }
+}

@@ -1,0 +1,74 @@
+import socket
+import threading
+from queue import Queue
+
+# Define target (could be a hostname or IP)
+target = input("Enter the host to scan (IP or domain): ")
+
+# Number of threads
+num_threads = 100
+
+# Queue to manage threads
+queue = Queue()
+
+# Store open ports
+open_ports = []
+
+
+# Function to scan a specific port
+def port_scan(port):
+    try:
+        # Create a new socket
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        # Set a timeout of 1 second per connection attempt
+        sock.settimeout(1)
+        # Try to connect to the target on the specified port
+        result = sock.connect_ex((target, port))
+        if result == 0:
+            print(f"Port {port} is open!")
+            open_ports.append(port)
+        sock.close()
+    except Exception as e:
+        pass
+
+
+# Function to manage the threads
+def worker():
+    while not queue.empty():
+        port = queue.get()
+        port_scan(port)
+        queue.task_done()
+
+
+# Main function to add ports to the queue and start scanning
+def run_port_scanner(start_port, end_port):
+    # Add all ports in the specified range to the queue
+    for port in range(start_port, end_port + 1):
+        queue.put(port)
+
+    # Start the threads
+    threads = []
+    for _ in range(num_threads):
+        thread = threading.Thread(target=worker)
+        thread.start()
+        threads.append(thread)
+
+    # Wait for all threads to finish
+    queue.join()
+
+    # Print the open ports after scanning
+    if open_ports:
+        print(f"\nOpen ports on {target}: {open_ports}")
+    else:
+        print(f"\nNo open ports found on {target}.")
+
+
+if __name__ == "__main__":
+    # Get port range from the user
+    start_port = int(input("Enter the start port (e.g., 1): "))
+    end_port = int(input("Enter the end port (e.g., 1024): "))
+
+    print(f"\nStarting scan on {target} from port {start_port} to {end_port}...\n")
+
+    # Run the port scanner
+    run_port_scanner(start_port, end_port)

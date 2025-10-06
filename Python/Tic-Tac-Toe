@@ -1,0 +1,62 @@
+# Function to print the game board
+def print_board(board):
+    for row in board:
+        print("|".join(row))
+        print("-" * 5)
+
+# Function to check if there's a winner
+def check_winner(board, player):
+    # Check rows, columns, and diagonals
+    for i in range(3):
+        if all([board[i][j] == player for j in range(3)]) or all([board[j][i] == player for j in range(3)]):
+            return True
+    if all([board[i][i] == player for i in range(3)]) or all([board[i][2 - i] == player for i in range(3)]):
+        return True
+    return False
+
+# Function to check if the board is full (draw condition)
+def is_board_full(board):
+    return all([cell != " " for row in board for cell in row])
+
+# Function to play Tic-Tac-Toe
+def play_game():
+    # Initialize the game board
+    board = [[" " for _ in range(3)] for _ in range(3)]
+    current_player = "X"  # First player is X
+
+    while True:
+        # Print the current board
+        print_board(board)
+
+        # Get input from the current player
+        try:
+            row, col = map(int, input(f"Player {current_player}, enter your move (row and column, 0-2): ").split())
+        except ValueError:
+            print("Invalid input! Enter row and column as two integers separated by space (e.g., 0 2).")
+            continue
+
+        # Validate the move
+        if row < 0 or row > 2 or col < 0 or col > 2 or board[row][col] != " ":
+            print("Invalid move! Try again.")
+            continue
+
+        # Make the move
+        board[row][col] = current_player
+
+        # Check if there's a winner
+        if check_winner(board, current_player):
+            print_board(board)
+            print(f"Player {current_player} wins!")
+            break
+
+        # Check if the board is full (draw condition)
+        if is_board_full(board):
+            print_board(board)
+            print("It's a draw!")
+            break
+
+        # Switch player
+        current_player = "O" if current_player == "X" else "X"
+
+# Run the game
+play_game()

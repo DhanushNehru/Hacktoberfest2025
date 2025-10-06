@@ -1,0 +1,14 @@
+//Write a program to print all prime number in between 1 to 100.
+#include<iostream>
+using namespace std;
+int main()
+{
+	int n;
+	for(n=2;n<=100;n++){
+		if(n%2==0 || n%3==0 || n%5==0){
+		continue;
+		
+	}else
+	cout<<n<<endl;
+	}
+}

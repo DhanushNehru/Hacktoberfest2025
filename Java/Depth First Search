@@ -1,0 +1,13 @@
+//Depth First Search (DFS)
+import java.util.*;
+
+public class DFS {
+    public static void dfs(int node, Map<Integer, List<Integer>> graph, Set<Integer> visited) {
+        if (visited.contains(node)) return;
+        visited.add(node);
+        System.out.print(node + " ");
+        for (int neighbor : graph.getOrDefault(node, Collections.emptyList())) {
+            dfs(neighbor, graph, visited);
+        }
+    }
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="main.css">
+
+    <title>Text to speech Convertor</title>
+</head>
+<body class="min-h-screen flex justify-center h-14 bg-gradient-to-r from-violet-500 to-fuchsia-500">
+    <div class="w-full items-center justify-items-center ">
+        <div class=" justify-items-center flex-col text-center">
+            <div class="p-1.0">
+                <br>
+                <h1 class="text-4xl font-semibold hover:italic">Text to Speech Convertor</h1>
+                <br>
+                <h1 class="text-2xl hover:italic"> Enter your text below</h1>
+            </div>
+
+            <div class="flex content-normal justify-items-center flex-col text-center pr-4">
+                <textarea id="textToConvert" 
+                    placeholder="Enter text to convert into speech..."  cols="60" rows="10" 
+                    class="p-2 m-8 bg-transparent text-white border-2 border-black rounded-lg"></textarea>
+
+                <p class="error-para"></p>
+                <button id="convertBtn" class="hover:scale-90 p-3 m-2 bg-gradient-to-r from-[#ff3b3b] to-[#F57D4E] border border-transparent rounded-lg text-white cursor-pointer transition-all duration-200">
+                    Play Audio
+                  </button>
+                  
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

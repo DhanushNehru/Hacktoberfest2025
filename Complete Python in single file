@@ -1,0 +1,993 @@
+'''#concepts of pthon:
+First Python Program 
+Indentation in Python
+Modules ,Comments ,Pip and import statement
+Variables and Datatypes
+Type-Casting
+Strings 
+Operators
+Lists and Tuples
+Sets and Dictionary
+Conditional Expression 
+Loops (Break and Continue also)
+Functions and Recursions
+File i/o
+OOP(Object Oriented Programming)
+inheritance and more on OOPS
+Advanced Python1 
+Advanced Python2'''
+'''# Now download python--
+# Step 1: Search on google, python.org
+# Step 2: Choose the version you want to download. For convenience just click on download button and it will download the latest version. If you have some other OS then download Python for that OS.
+# Now we will move on to download VS Code/PyCharm for better coding experience and then we will learn to install both of them.
+# VS Code Download : To write Python code we need IDE (Integrated Development Environment) and for that we chose Visual Studio Code.
+# Step 1: Search on google, visualstudio
+# Step 2: Download VS Code according to your OS.
+# Now we will learn how to install them.
+# Installing Python :
+# Step 1: Click and open it.
+# Step 2: Tick on Add Python to PATH
+# Step 3: Click on install now.
+
+# Installing VS Code : Keep everything to default and click on next everytime and install. Except click on tick on both "Add"
+# What you can do with Python :
+# You can create machine learning projects, websites, GUI Projects, scripts for scrapping, bots, etc. Sky is the limit. You can make games, we even have a series on that, check out this link! You can even write a script to make your computer automatic.
+# VS Code Overview :Visual Studio Code is a source-code editor or IDE developed by Microsoft for all major OS’s. It have features like debugging, embedded Git control and GitHub, syntax highlighting, intelligent code completion, snippets, and code refactoring. These features of VS Code make it the best IDE in today’s world.
+# There are alot of features in VS Code which make it one of most favorite code editor among coders. Features like:
+# Multiple terminals running at the same time
+# Multiple files open at the same time which is awesome for web developers
+# It’s Customizability, we can install various extensions in it
+# We can install different python interpreters and change according to our need
+# Multiple cursor points to edit or write repeating text
+# There is a bar named “outline” in which all modules, classes, functions, variables and everything is listed in an organized way with their own logos making it very easy to differentiate and access.
+# It gives you an overview of your code in a minimized way
+# These are just some of the many features of VS Code.
+
+# Checking Python Installation :
+# After installing Python and VS Code you must check that whether you have successfully installed Python or had some problem. So, check it using terminal(cmd).'''
+#Lets, begin
+# What is programming language: Just like hindi or english to communicate with each other, we use a programming language that is Python to communicate with the computer
+# What is python, developer,features? 
+# Python is a scripting programming language which used to create a GUI,Games,website,etc. it is simple and easy language, which understood by everyone. 
+'''Features of python; 
+1. Simple.
+2. Easy to write codes/learn.
+3. Readability.
+4. Easy to understand: less Development time as compares to others programming language.
+5. High level language.
+6. Portable: Works on all os like windows,linux,mac.'''
+# So, we write our First Python Program in our life :
+# print("hello world")
+# output: hello world
+# Programming Language :
+# Programming Language are the languages which allows users to interact with computer and these languages comprises of set of instructions which produce various kinds of outputs.
+# Programming Languages are used to create programs which allow users to perform complex task in seconds.
+# Programming Languages are used because computer doesn’t understand human languages so we write code in programming language which later on get converted by language processors in machine language or binary code.
+# Python in Brief :
+# Python is a high-level, general-purpose programming language. Python use interpreter as its language processor.
+# Python is used to develop GUI Programs, Web Applications, websites, Games, scripts, etc. and python is even used in networking and all. Python is even used to do photo editing, video editing and other type of general purpose work.
+# This programming language is used mostly everywhere in tech field. It is used in Data Science, AI, Machine learning etc. 
+# Understanding First Code :
+# print("hello world\n")
+
+# In this code we wrote a function (print) which allows us to print anything which is written inside that function in double quotes (“”).
+
+# So, in print function when we use “” (Double Quotes) it means anything enclosed in double quotes will be displayed as it is and is known as string.
+
+# String is a data type in Python which is related to text. And to make string just enclose that part in either (‘’) Single or (“”) Double quotes.
+
+# Python in Power Shell :
+# We can write code in Power Shell of windows. But the problem is that it’s like interactive mode i.e. we can only write one line code at a time and then we have to execute it. So, this type of interactive mode is used when we want to check any error in any specific line or at the time of debugging the program.
+
+# So, we should write code in good IDE i.e. VS Code. Because it provide us many features and allows us to write good and efficient code.
+
+# VS Code Community : VS Code is one of the best IDE in today’s world and it is developed and maintained by Microsoft on regular basis.
+
+# The main thing about VS Code is that it’s a IDE of Microsoft and as we all know Microsoft is such a big company and its services are generally marvelous and that’s why I also prefer using this VS Code. It is open source software which allows us to write code and there are many people who are managing it on daily basis and try to improve it regularly. 
+
+# Indentation in Python :
+# There are 3 types of statements in Python :-
+# 1.Simple Statement
+# 2.Empty Statement
+# 3.Complex Statement: In Complex statements there are two portions,that are header and body.
+
+# if (5>4):                                   #This is the header part
+#     print("5 is greater than 4")            #This is body part
+#     print("Got it!")
+
+# else:                                 #This is the header part
+#     print("Bye guys!")                #This is body part
+
+# So, indentation means leaving a TAB space from margin and in python it is used to show that statements which are indented belong to upper statement.
+# In statements like if, if-else, elif, for, while, etc.We use indentation because these all are type of complex statements and they have two parts as I already discussed with you header and body.
+# We have to indent our body statements to show that these are sub-statements of our main statements which is written in header portion.
+
+# i = 0
+# while (i<10):                 #This is a header part
+#     print(i+1)                #This is a body part
+#     i=i+1
+
+# Comments: Comments are the code which is not executed while interpreting the code. Comments are used to make the code more understandable for the programmer. 
+# There are two types of comments in Python :-
+# 1·Single Line Comments : It is the comments which are created in single line only i.e. they occupy the space of single line only,which is created by pound symbol that is #.
+# 2.Multi-Line Comments : Multi Line comment are the comments which are created by using multiple lines i.e. they occupy more than one line in the program. These are created using triple quote (‘’’ Comment Code ‘’’) in Python.
+# #It's a single line comment
+
+# '''
+# It's a multi
+# line
+# comment
+# '''
+
+# print("Hope you understood about comments")
+
+# Modules/Library and Import Statements:
+# Module – Module or library is the file which contain definitions of several functions, classes, variables, etc. which are written by someone else for free use.
+# Modules are used in code when we want to do some work and that work is already done by someone else and available in any module then we can simply import that module and can use that code in our program.
+# There are many modules in Python which can be downloaded from internet and can be used in our python program. And there are some built-in modules also which are available to use when we are offline.
+# import math #Here we have imported a built-in module 'math'
+
+# print("Here we will use some math functions")
+# a = 2
+# b = 4
+# c = math.sqrt(25)
+# d = math.pow(a,b)
+# print(c)
+# print(d)
+# So, in above code as you can see we have downloaded a module named as opencv-python. So that’s how you can download module :
+#pip install _module_name and After downloading modules you have to simple import them or use them in your program.
+# So, syntax: import _modulename 
+# That’s how you can use module in your programs.
+
+# Variables : A variable is a name or an identifier which is given to any storage area or memory location.It’s a name of memory location.
+# Rules for defining a variable in Python :-
+# 1.Variable name can contain alphabets, digits, and underscore (_).
+# 2.Variable name can start with an alphabet and underscore only.
+# 3.It can’t start with a digit.
+# 4.No whitespace and reserved keywords are allowed to use as a variable name.
+# 5.Variables are case-sensitive.
+# 6.E.g. a=5, demo = “Name”, Demo1 = 65.85, etc.
+
+# Type-Casting : Type-casting is defined as converting one data type into another for smooth functioning of program.
+# With type() function we can find the type of any variable.
+# print("\t\tType Casting")
+
+# a = 52
+# b = 58.68
+# c = "Anshul"
+# print(type(a))
+# print(type(b))
+# print(type(c))
+# Type-casting is done when we want to perform arithmetic operations on the variables of same data type.
+
+# print("\t\tType Casting\n")
+
+# a = 15
+# b = "25"
+# print(type(b))
+# b = int(b)
+# print(type(b) )
+# print("Sum of a and b is",a+b)
+
+# Strings : String literal in python are enclosed in either single quotes (‘’) or double quotes (“”).
+# It means “anshul” is same as ‘anshul’,We can simply assign string to a variable.
+# print("\t\t Strings")
+# a = "Anshul"
+# print(a)
+
+#   b = '''
+# This is an
+# example of
+# multi-line
+# string.
+#   '''
+# print((b))
+# So, here we declared a variable b and in that variable we assigned a multi-line string.
+# In multi-line strings also we can use either single quotation mark or double quotation mark.
+
+# String Slicing :
+# In Python to use any specific character of string we use index no.
+# Index no. is a special type of no. which allows us to extract any character from string.
+# Index no. starts from 0.
+# For example:
+# print("\t\t Strings")
+# a = "Hello"
+# print(a[0])
+# print(a[1])
+# print(a[2:5])
+
+# String Functions :
+# variable_name.strip() = This function allows us to remove all the blank spaces near to string.
+# print("\t\t Strings")
+# a = "   Hello  "
+# print(a)
+# print(a.strip())
+
+# Len() in string
+# len() = len function counts the total characters of any string.
+# print("\t\t Strings")
+# a = "Hello"
+# print(a)
+# print(len(a))
+
+# lower() in string
+# variable_name.lower() = This function converts all the characters in lower case of a string.
+# print("\t\t Strings")
+# a = "Hello"
+# print(a)
+# print("\n")
+# print(a.lower())
+
+# upper() in string
+# variable_name.upper() = This function converts all the characters in upper case of a string.
+# print("\t\t Strings")
+
+# a = "Hello"
+# print(a)
+# print(a.upper())
+
+# replace() in string
+# variable_name.replace(“char1”, ”char2”) = This function replaces char1 by char2 in a string.
+# print("\t\t Strings")
+
+# a = "Hello"
+# print(a)
+# print(a.replace('ello', 'i'))
+
+# Adding Strings by + op.:
+# We can simply add two or more strings by using ‘+’ operator between two variables.
+
+# print("\t\t Strings")
+
+# a = "Hello"
+# b = " Guys"
+# print(a+b)
+
+# Format Strings by format():
+# It means we can easily format string by using .format function.
+
+# print("\t\t Strings")
+
+# a = "V"
+# b = "vishakha"
+# print("This is the {} string".format(a,b))
+# print("This is the {0} string".format(a,b))
+# print("This is the {1} string".format(a,b))
+# In place holders we can pass values such as 0,1 etc., place holder is {}.
+
+# print("\t\t Strings")
+# a = "V"
+# b = "vishakha"
+# print(f"This is a {a} of {b} string")
+
+# Operators : An Operator is a symbol which is used to perform operations on operands in any programming language.
+# In python there are many type of operators :
+# * - This is an exponential operator i.e. if we write 2*3 then it means 2 raise to power 3.
+# // ( Floor division ) – This divides two no. but returns a integer value.
+# % (Modulus Operator) – This operator returns the remainder.
+# There are many more operators such as +,-,*,/ etc.
+
+# Python Data Collections:In Python there are some built-in or core data types :
+# 1.Lists
+# 2.Tuples
+# 3.Sets
+# 4.Dictionaries
+# Now we’ll discuss each of them in brief.
+
+# Lists : A List in Python represents a list of comma-separated values of any data type between square brackets.it is used to stores a set of values of any datatype.
+# print("\t\tList\n")
+# lst = [8,5,2,9,7]
+# print(lst)
+# print(type(lst))
+# print(lst[0])
+# print(lst[1])
+# print(lst[2: 5])
+# List Functions : there are many functions performed on list like append,pop,sort,reverse,insert,etc.
+# variable_name(list).append – This function adds a new value or element in the end of the list.
+# lst = [8,5,2,9,7]
+# print(lst)
+# print(type(lst))
+# lst.append(99)      #append function
+# print(lst)
+# variable_name(list).insert(index_no, value) – This function adds a new element at any index no. in the list.
+# lst = [8,5,2,9,7]
+# print(lst)
+# print(type(lst))
+# lst.insert(0,99)        #insert function
+# print(lst)
+# variable(list).remove(element) – This function removes an element from the list.
+# lst = [8,5,2,9,7]
+# print(lst)
+# print(type(lst))
+# lst.remove(2)       #remove function
+# print(lst)
+# variable(list).pop() – This function removes one element from the end of the list.
+# lst = [8,5,2,9,7]
+# print(lst)
+# print(type(lst))
+# lst.pop()       #remove one element from list
+# print(lst)
+# del variable[index_no] – This keywords allows us to remove or delete any particular element from the list by using it’s index no.
+# lst = [8,5,2,9,7]
+# print(lst)
+# print(type(lst))
+# del lst[2]       #remove the element at index 2
+# print(lst)
+# del variable(list) – This is used to delete whole list from the program.
+# Variable(list).clear – This function removes all the elements of the list.
+# lst = [8,5,2,9,7]
+# print(lst)
+# print(type(lst))
+# lst.c`  `1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111``````clear()       #clears the list
+# print(lst)
+
+# Tuples: These are those lists which cannot be changed i.e., are not modifiable. Tuples are represented as list of comma-separated values of any date type within parentheses.
+# Tuples doesn’t allow anytypes of modification.
+# If we wish to modify any tuple then we’ll get error , dont worry you can modify a tuple with help of after converting or type casting it into the list.
+# print("\t\tTuples\n")
+# tup = ('Anshul', 'Hello', 54, 'Guys')
+# print(tup)
+# print(type(tup))
+# tup = list(tup)
+# tup[1] = 99
+# print(tup)
+
+# Sets : Sets in python are a data type equivalent to sets in mathematics. It may consist various elements and the order is undefined.
+# Sets elements are enclosed in {} Curly Braces.
+# In sets repeated elements does not get printed.
+# Sets Functions : len,remove,pop,clear,union,intersection.
+# variable_name.add(element ) – This function is used to add one element in the Set.
+# print("\t\tSets\n")
+
+# set1 = {1,2,3,4,5,1,2,3}
+# print(set1)
+# print(type(set1))
+# set1.add(99)
+# print(set1)
+# variable_name.update([element1, 2, 3…]) – This function allows us to add many elements in the set.
+# print("\t\tSets\n")
+# set1 = {1,2,3,4,5,1,2,3}
+# print(set1)
+# print(type(set1))
+# set1.update([5,6,99,109,199])
+# print(set1)
+# There are many more functions of sets such as .pop, .clear, del etc. Try them in your system.
+
+# Dictionary : Dictionary data type is another feature in Python's hat. The dictionary is an unordered set of comma-separated key, value pairs, within {},with the requirement that within a dictionary, no two keys can be the same (i.e., there are unique keys within a dictionary).
+# print("\t\tDictionary\n")
+# dictionary1 = {
+#     "Play" : "Doing some coding",
+#     "Food" : "Something eatable new things by pyhton",
+#     "Python" : "Programming Language",
+# }
+# print(dictionary1)
+# print(len(dictionary1))
+# Dictionary Functions are same as of list, tuples etc. so, try yourself.
+
+# In Python we can take input from user by using function:
+# input()
+# This function takes the input from user but it always take input in string data type i.e. if we want any arithmetic operation to be done on that input then we need to type cast that input into either int or float data type.
+# print("\t Input statement \n")
+# a = int(input("Enter any number: "))
+# name = int(input("Enter any name: "))
+# print(type(a))
+# print(a)
+# print(type(name))
+# print(name)
+
+# Conditional Expression: Sometimes we eat an icecream if the day is sunday.All these are decisions which depends on conditions. 
+# So, In Pyhton we have 3 type of Conditional Statements :
+# 1.if statement
+# 2.if-else statement
+# 3.elif statement
+# if statement – In if statement condition is checked and if the condition is true then body of if statement get executed.
+# print("\t Conditional Statements \n")
+# x = int(input("Enter any number: "))
+# if (x>100):
+#     print("Number entered is greater than 100")
+# print("END!")
+
+# if-else statement – In if-else statements condition is checked and if condition is true then block of if statement get executed but if ‘if’ condition is false then block of else statement get executed.
+# print("\t Conditional Statements \n")
+# age = int(input("Enter your age: ")
+# if (age>=18):
+#     print("You are eligible to vote")
+# else:
+#     print("You are not eligible to vote")
+
+# elif statement – In these type of statements, there are many instances when there is a need to check condition. We use these statements when we have to check many conditions.
+# print("\t Conditional Statements \n")
+# x = int(input("Enter any number: ")
+# if (x>50):
+#     print("Number is greater than 50")
+# elif (x>25):
+#     print("No. entered is b/w 25-50")
+# elif (x>0):
+#     print("Number entered is between 0-25")
+# else:
+#     print("Enter valid number")
+
+# Loops: Loops or iterative statements are the statements which allow repetition of block of code again and again till the condition become false.
+# There are 2 type of loops in Python :
+# for Loop and while loop.
+# print("\t Loops \n")
+
+# num = 5
+# for a in range(1, 11 ):
+#     print(num, 'x ', a, '=', num* a)
+# print("\t Loops \n")
+
+# x = 1
+# while(x<=100):      #while loop
+#     print(x)
+#     x = x+1
+# In loops sometimes we use break and continues statements :
+# 1. break statement is used to stop the loop before it has loops through all the items or statements.
+# 2. continue statement allows us to stop the current or active iteration of the loop and continue with the next iteration.
+
+# Functions: A function is a block of codes that take inputs, do some specific task and produces output. We create functions when we have to do some work again and again in a program. That’s why we create function and calls it whenever we want to use it in our program.
+# Creating a function :
+# '''
+# def function_name () :
+
+#          statement 1,
+
+#          statement 2,
+
+#          ….
+# '''
+# print("\t Functions \n")
+
+# def demo1():     #Defining a function
+#     print("Hlo dear")
+#     print("It's my First Function")
+#     print(" : )")
+
+# demo1()      # Calling a function
+# print("\t Functions \n")
+# another example of function
+# def add(a,b):        #Defining Function
+#     c = a+b
+#     return c
+
+# x = int(input("Enter a number: "))
+# y = int(input("Enter a number: "))
+
+# z = add(x,y)        #Calling Function
+# print("The Sum is", z)
+
+# Recursions: its a function which calls itself.
+# this function can be defined as follows: 
+# def factorial(n):
+        # if i==0 or i==1:                #base condition which does call the fn any further
+                # return 1
+        # else:
+                # return n*factorial(n-1)         #fn calls itself
+
+# File i/o: A file is a stored in a storage device, a python program can talk to the file by reading content from it and writing also.
+# Types of file in python:- 1. Text files(.txt,.c,etc)  2. Binary files(.jpg,.dat,etc)
+# open(): used to opening a file
+# syntax:  open("this.txt","r")
+# Reading a file in python-
+# f = op("this.txt","r")          #opens a file in r mode
+# text=f.read()           #read its content
+# print(text)             #print its content
+# f.clos()                #closing a file
+
+'''Modes of files in python- 
+r- open for reading
+w- open for writing
+a- open for appending
++- open for updating
+rb- will open for read in binary mode
+rt- will open for read in text mode'''
+
+# OOP (Object Oriented Programming) : Python is an object oriented programming language.
+# So it have concept of class and objects.
+#Class: it is a blueprint for creating an objetc.
+# syntax of class, Class class_name:
+                        #methods & variable
+#Object: its an instance of class.
+#syntsx for declares an object, obj_name = class_name()
+
+# Short Notes Summary:
+# Python Introduction 
+# Guido van Rossum created Python in December 1989, and it was released in 1991.
+# It is an open-source, object-oriented, general-purpose programming language. 
+# It is used for developing desktop GUI, web and software development, etc. 
+# Writing Our First Python Program:
+# We are going to write our first "Hello World" program in Python.
+
+# print("Hello world\n")
+# What Is A Programming Language?
+# It is a fact that we all need a language to establish efficient and easy communication with each other. Similarly, we need a language to develop a proper connection with computers. The language which helps us to communicate with computers is known as a programming language.
+# ⦁ A programming language comprises a set of instructions that perform a specific task or function when executed.
+# ⦁ Programming languages are used to develop algorithms so that the time-consuming tasks can be completed within seconds.
+# Understanding Our First
+# Example:
+# print(" python With Anshul")
+# Output: python With Anshul
+
+# Using Python REPL in Terminal:
+# Python in Power Shell:
+#    Python programs can be written in Windows Powershell. But, the problem with Windows Powershell is that it allows us to write only one line of code at a time. After one line, it automatically executes the code. Therefore, it becomes difficult to build large programs or script. Therefore, we need an IDE or editor so that we can quickly write, debug, and run our program in a single software.
+  
+# Indention In Python: 
+# In other programming languages, indentation refers to spaces with respect to the margin. But, in Python, it is much more than simple spaces. Other programming languages use indentation for better readability of code, but Python used indentation as a block of code.
+
+# Python indentation tells the interpreter ki hum sb ek hi group ke statements 
+
+# Comments In Python: jo ki compiler ke kaam ki nhi h, ignore krta h just like in this era log krte h apna kaam nikal kr
+
+
+
+# Types Of Comments In Python:
+# 1. Single line comments
+# 2. Multi-line comments
+
+# Single line comments: To make a single line comment, simply start your line with a # symbol. The single-line comments are automatically terminated at the end of the line.
+# Multi-line comments: To make a multi-line comment, simply start your line with the" "" symbol. Unlike single line comments, they do not get terminated automatically. We need to add the closing symbol, i.e.""" for their termination.
+# There is no pre-defined syntax for adding comments. You can do whatever feels more comfortable for you.
+
+# Modules and import statement
+# What Are Modules In Python?
+# Modules in Python are Python files which contain some pre-written code(functions, classes, variables, etc.). Modules are free to use, and we can use them by using an import statement.
+
+# Why Are Modules Needed?
+# Modules are used when we need a piece of code that is already written by someone and available on the internet.
+
+# Suppose we are making a game in which one module is responsible for the game logic, and another module would be accountable for user login. Here, each module is a different file with the .py extension, and we can easily import them into our program.
+
+# Syntax For Downloading A Module:
+# There are plenty of Python modules that are available on the internet. In Python, we also have some in-built modules that can be used offline. 
+
+# Step 1: Before importing the module into our program, we need to download it first. 
+
+# You can download any module using the syntax below:
+
+#  # pip install _module_name 
+
+# Step 2: After successfully downloading the required module, we can easily import it into our program. 
+
+# Follow the syntax given below to import any module:
+
+# # import _module_name
+# for example, imort os / import math
+
+# Variables In Python:
+#  A Python variable is a reserved memory location in which values are stored. 
+# In other words, data is given to the computer for processing, with the help of a variable.
+# Python has no command to declare a variable in contrast to other programming languages.
+# Rules For Variable Declaration:
+# The name of the variable may include alphabets, digits, and underscore ( ).
+# We can use the alphabet and underscore only for the starting of a variable name.
+# A variable name can not begin with a digit.
+# Variable names are case-sensitive.
+# Whitespaces and reserved keywords can not be used as a variable name.
+
+# Type-Casting In Python:
+# The conversion of one data type into another data type is known as Type-casting.
+# Python is an object-oriented programming language, and there may be situations when we want to perform arithmetic operations on the variables of the same data type. Here, type-casting comes into the picture.
+# With the help of type() function, we can easily find out the data type of any variable.
+
+# Strings In Python:
+# In a similar way to other popular programming languages, Python strings are byte arrays representing Unicode characters.
+# Like other programming languages, Python does not support a char(character) data type.
+# A single character is considered as a string of 1 length.
+# How To Create Strings In Python?
+# Creating strings in Python is like assigning a value to a value. We just need to enclose the characters in single or double-quotes.
+
+# Example: 
+# a= " Python With Anshul "
+# b= ' Python With Anshul '
+
+# String Slicing In Python:
+# In Python, slicing is a feature that allows us to access a specific part of a string.
+# In order to extract any character from a string, we use index numbers. 
+# Index number start from 0. 
+# Example: a= "Python With Anshul "
+
+# Here, a[0]= C
+
+# similarly, a[1]= o
+
+# String Functions:
+# There are plenty of string functions available in Python. I am listing some of the most commonly used string functions.
+
+# len(): This function returns the length of a string.
+# variable_name.lower(): This function returns the lowercased string from the given string.
+# variable_name.upper(): This function returns the uppercased string from the given string.
+# variable_name.replace("Char1"," char2"): This function is used to replace one character by another character. Here, char1 gets replaced by char2 in a given string.
+# isalpha(): This function returns boolean value(True or False). Returns true if strings are in the alphabet and vice-versa.
+# isdigit(): This function also returns boolean value. Returns true if all characters of a given string are digits and vice-versa.
+# Operators [58:24 – 59:50]
+# Operators In Python: An operator is a symbol that tells a compiler or interpreter to perform a specific task. 
+
+# The value on which operators operates is known as an operand.
+
+# Examples: 
+# a=5
+# b=7
+# c= a+b
+# Here '+' is the operator and operands are 'a' and 'b'.
+
+# Types Of Operators In Python:
+# There are plenty of operators in Python. Some of the most commonly used operators are given below:
+# + - Addition operator
+# - Subtraction operator
+# * - Multiplication operator
+# / - Divison operator
+# % - Modulus operator
+# ** - Exponentiation operator
+# // - Floor Division
+# Core Data Types In Python:
+# There are four core data types in Python:
+# Lists
+# Tuples
+# Sets
+# Dictionaries
+        
+# Lists In Python:
+# Written with square brackets jaise ki [].
+# They are mutable, i.e., changeable.
+# It is an ordered sequence of elements.
+# Repetition of elements is allowed.
+# List Functions:
+# variable_name(list).append :
+#  This function adds an element at the end of the list. 
+# Only a single element can be added at a time by using the append method.
+# variable(list).remove(element) – This function removes the a single element from the list.
+# variable_name(list).insert(index_no, value) - This function adds an element at a specified index.
+# Variable(list).clear - This function removes all the elements from a list.
+# list1.extend(iterable)-This function adds the element of a list at the end of a given list
+# copy()- This function copies one list into another list.
+
+# Tuples:
+# Written in parenthesis like ().
+# Tuples are immutable, i.e., they can be changed.
+# Tuples are also ordered sequence of elements.
+# Repetition of the element,i.e., duplicates, are not allowed.
+           
+# Sets:
+# Written within curly brackets {}.
+# Sets are unordered and unindexed.
+# Duplicates are not allowed.
+# Sets Functions:
+# variable_name.add(element ) : This function allows us to add an element to a given set.
+# variable_name.update([element1, 2, 3…]): This function allows us to add more than one element to a given set.
+# variable_name.copy(element): This function returns the copy of a element.
+# There are plenty of functions of sets. Try to explore them by yourself.
+
+# Dictionary:
+# Written within curly braces{}.
+# Dictionaries are unordered set.
+# Dictionaries have a key: value pairs within curly braces.
+# Within a dictionary, each and every key is unique.
+
+# Conditional Statements In Python:
+# In any programming language, conditional statements are the statements or expressions which perform various calculations depending on whether a specific boolean condition returns true or false.
+
+# Types Of Conditional Statements:
+#  There are three types of conditional statements:
+
+# if statement
+# if-else statement
+# elif statement
+# Now, we will discuss each of them in brief.
+
+# if statement: 
+# Syntax:
+
+#              if test condition:
+
+#                  statement(s)
+
+ 
+
+# Here, the interpreter evaluates the test condition, if the test condition returns true, then only the statement(s) block gets executed; otherwise, the program is terminated.
+
+# 2.if-else statement: 
+#         Syntax:
+
+#                      if test expression:
+
+#                       statment 1
+
+#                  else:
+
+#                      statement 2
+
+# Here, the interpreter first checks the if test expression, if it turns out to be true, then statement 1 gets executed else the statement 2 gets executed.
+
+# 3.elif statement: 
+#       Syntax: 
+
+#               if test expression:
+
+#                statement 1
+
+#     elif test expression:
+
+#      statement 2
+
+#     else: 
+
+#       statement 3
+
+# elif is the short form of else if.
+# Here, the interpreter first checks the if test expression, if it turns out to be false, then the next elif block gets tested and so on.
+    
+# Loops In Python:
+# In Python or any other programming language, loops come into the picture when we need to iterate over a sequence.
+# Loops allow us to repeat a specific block of code again and again until a condition turns out to be false.
+# Types Of Loops In Python:
+# There are two types of loops in Python:
+
+# For loop
+# While loop
+# For Loop: 
+# For loops are used to iterate over a sequence of a given list, tuples, sting etc.
+# range() function is used to iterate over a series of item.
+# While Loop:
+# While loops allows us to execute a set of code or statement as long as a given condition is true.
+# Once the given statement turns out to be false, while loops terminates.
+# Break And Continue In Python:
+# Break and continue statements are used when we want to alter the flow of the normal loop.
+# Python Break Statement: 
+# The break statement terminates the current loop (loop containing the break statement)
+# The control flows to the body of the program after the loop, and the execution of the next statement takes place.
+# Python Continue Statement:
+# It returns the control at the beginning of the while loop.
+# The continue statement skips all of the statements in the current iterating loops and returns the control at the top of the loop.
+# Loop does not get terminated, but it continues with the next iteration.
+     
+# Functions In Python:
+# Organized and reusable code.
+# They are used for performing single or related actions.
+# Advantages Of Functions:
+# Better application modularity
+# High degree of code reusability
+# Better code clarity
+# Less degree of code duplication
+# Why Do We Need Functions?
+#  Suppose you are writing a program in which you want to use a piece of code again and again. Will you write that code again and again? Isn't it time-consuming?
+# To solve this problem, we use functions. Instead of writing code, again and again, we simply make a function and call the function whenever we need it.
+# Rules For Function Declaration:
+# It must begin with keyword def, followed by the name of the function and parenthesis.
+# Input parameters or arguments must be placed in the parenthesis.
+# A colon(:) marks the end of the function header.
+# A return statement is used to return something from a function, but it is optional.
+# Syntax For Function Declaration:
+# '''def function_name( parameters ) :
+# 
+        #  statement 1
+# 
+        #  statement 2'''
+# 
+# OOPs Concepts in Python     
+# Object-Oriented Programming In Python
+# Python is a multi-paradigm programming language. It has support for various approaches to problem-solving.
+# OOP is one of the most popular and widely used approaches for problem-solving. In this approach, everything is treated as an object.
+# The concept of OOP is mainly based on DRY, which means Do not repeat yourself.
+# The main purpose of OOP is creating reusable code.
+# OOP is associated with various concepts such as class, object, abstraction, encapsulation, inheritance etc.
+# Here is the code written in the video compiled at a single place!
+# import cv2
+# import math
+
+# This is a comment
+# print("Hello world")
+# print(math.gcd(3,6))
+'''
+This is a multi line comment
+
+'''
+# This is also a comment
+# print(5+8)
+# if(age<18):
+#     print("hello")
+
+
+a = 34
+b = "Anshul"
+c = 45.32
+d = 3
+
+# print(a + d)
+# print(a - d)
+# print(a * d)
+# print(a / d)
+
+# Try these operators:
+# 1. ** Exponentiation operator
+# 2. // Floor division operator
+# 3. %  Modulo operator
+
+# Wrong syntax
+# anshul project = 45 
+# Rules for creating variables
+
+# 1. variable should start wioth a letter or an underscore
+# 2. variable cannot start with a number
+# 3. It can only contain alpha numeric characters
+# 4. Variable names are case sensitive. Anshul and anshul are two different variables
+
+# typeA = type(a)
+# typeB = type(b)
+# print(typeB)
+e = "31"
+e = float(e)
+# e = str(455)
+# e = int("34")
+# e = 3.14
+# print(type(e))
+# print(e+2)
+
+
+name = "Hari, Shubham, vikrant"
+# print(name[2:5])
+# print(name)
+# print(name.strip())
+# print(len(name))
+var = name.lower()
+var = name.upper()
+var = name.replace("ar", "at")
+var = name.replace(", ", '\n')
+# print(var)
+
+# str1 = "This is a "
+# name1 = "Anshul"
+# name2 = "Vishakha"
+# str2 = "This is not a"
+# print(str1 + name1)
+# temp = "This is a {1} and his friend named {0}".format(name1, name2)
+# temp = f"she is a {name2} and her friend named {name1}"
+# print(temp)
+
+'''
+Python Collections:
+1. List
+2. Tuple
+3. Set
+4. Dictionary
+
+'''
+# List
+lst = [61,2,3,4,6,41]
+# var = type(lst)
+# lst[2] = 45
+# var = lst[2]
+# lst.append(100)
+# lst.insert(1,100)
+# lst.remove(61)
+# lst.pop()
+# del lst[3]
+# del lst
+# lst.clear()
+# var = lst
+# var = len(lst)
+# var = lst[1:4]
+# print(var)
+
+
+# Tuple : consist element uniquely
+a = ("Anshul", "Amit", "Vishakha")
+# var = a
+a = list(a)
+var = type(a)
+
+# Cannot do this
+a[0] = "Vishakha" 
+# print(var)
+
+# Set
+s1 = {23,2,2,2,2,2,7,3,2,1,2,2,12,7,6,3,12,}
+# s1.add(44444)
+# s1.update([12,12,423,3423,634,123,432,23])
+# print(len(s1))
+# s1.remove(1666)
+# Like list you can use: .pop, .clear, del
+# and.. intersection, union
+# s1.discard(1666)
+# print(s1)
+
+#Dictionary:
+AnshulDict = {
+    "Name": "Anshul",
+    "Class": "BCA",
+    "Marks": 86.34,
+    "Hours In Clg": 6
+}
+AnshulDict["Marks"] = 34
+# print(AnshulDict["Marks"])
+AnshulDict.pop("Marks")
+# del, clear, pop, update
+# print(harryDict)
+
+# age = 34
+# age = input("Enter Your Age\n")
+# age = int(age)
+# # print(type(age))
+# if(age>18):
+#     print("You can drive a car")
+
+# elif(age==18):
+#     print("You are an awesome teen")
+
+# else:
+#     print("You cannot drive")    
+
+
+# Loops:
+# Scenario: you have to print numbers between 1 to 1000
+# for i in range(0, 1000):
+#     print(i)
+
+# li = [1, 432, "this"]
+# for item in li:
+#     print(item)
+# # Quiz: Use for loop to iterate dictionary, set and tuples  
+# i = 0
+# while(i<100):
+#     i = i + 1
+#     if i == 78:
+#         continue
+#     print(i+1)
+
+# Functions:
+# def greet():
+#     print("Good morning sir")
+#     print("Good morning mam")
+#     print("Good morning Uncle")
+
+# greet()     
+
+# def sum(a, b):
+#     print("Running sum")
+#     c = a + b
+#     return c
+# d = sum(34, 45)
+# print(d)
+
+#Class & Objetcs(OOPS),
+# example 1--
+# class Student:
+#     cl = "This is a class of a student"
+#     name = "Vishakha"
+#     Marks = 86
+#     def greet(self):
+#         print('Hyy')
+# anshul = Student()   
+# anshul.greet()  
+# print(Student.cl)  
+# print(Student.name)      
+# print(Student.Marks)
+# print(Student.greet)
+# example 2--
+# class Phone:            # creating a class
+        # def make_call(self):            #defining a function
+                # print("Making a phone calls")
+        # def play_game(self):            #defining a fn
+                # print("Playing a Game")
+# p1 = Phone()            #creation of object
+# p1.make_call()          #calling a fn of class by object
+# p1.play_game()          #calling a fn of class by object
+#example 3-- with parameter
+# class Phone:
+        # def set_color(self,color):
+                # self.color=color
+        # def set_cost(self,cost):
+                # self.cost=cost
+        # def show_color(self):
+                # return self.color
+        # def show_cost(self):
+                # return self.cost 
+        # def make_call(self):
+                # print("Making a phone calls")
+        # def play_game(self):
+                # print("Playing a game")
+# p2 = Phone()
+# p2.set_color('red')
+# p2.set_cost('34099')
+# p2.make_call()
+# p2.play_game()

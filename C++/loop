@@ -1,0 +1,17 @@
+//Take 10 integers from keyboard using loop and print their average value on the screen.
+#include<iostream>
+int main()
+{
+	using namespace std;
+	int sum;
+	float avg;
+	for(int i=1;i<=10;i++)
+	{
+		int a;
+		cout<<"enter the value of a= \n";
+		cin>>a;
+		sum=sum+a;
+	}
+	cout<<"the average of the number you enter is= \n"<<sum/10.0<<endl;
+	return 0;
+}

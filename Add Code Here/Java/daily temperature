@@ -1,0 +1,29 @@
+/*Given an array of integers temperatures represents the daily temperatures, return an array answer 
+such that answer[i] is the number of days you have to wait after the ith day to get a warmer temperature.
+If there is no future day for which this is possible, keep answer[i] == 0 instead.
+Input: temperatures = [73,74,75,71,69,72,76,73]
+Output: [1,1,4,2,1,1,0,0]
+*/
+class Solution {
+    public int[] dailyTemperatures(int[] temperatures) {
+        Stack<Integer>st=new Stack<>();
+         int n=temperatures.length;
+        int ans[]=new int[n];
+
+        //stack to store the indices of temp and not the temperature
+       // If st.peek() is used to index into another array (like temperatures), then st.peek() returns an index.(imp concept)
+        for(int i=n-1;i>=0;i--){
+            while(!st.isEmpty() && temperatures[st.peek()]<=temperatures[i]){
+                st.pop();
+            }
+            if(st.isEmpty()){
+                ans[i]=0;
+            }
+            else{
+                ans[i]=st.peek()-i;
+            }
+           st.push(i); // st.push(temperatures[i]);
+        }
+        return ans;
+    }
+}

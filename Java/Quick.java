@@ -41,7 +41,7 @@ class QuickSort {
     }
 }
 
-public class SortArray {
+public class Quick {
     public static void main(String args[]) {
         List<Integer> arr = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);

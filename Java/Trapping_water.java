@@ -1,4 +1,4 @@
-public class ArraySCC {
+public class Trapping_water {
     public static int trappedRainwater(int height[]){
         int n = height.length;
         int leftMax[] = new int[n];

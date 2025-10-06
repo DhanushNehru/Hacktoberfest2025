@@ -5,9 +5,9 @@
 [![Subscribe on YouTube](https://img.shields.io/badge/YouTube-Subscribe-red?logo=youtube&style=for-the-badge)](https://www.youtube.com/@dhanushnehru?sub_confirmation=1)
 [![Subscribe to Newsletter](https://img.shields.io/badge/Newsletter-Subscribe-orange?style=for-the-badge)](https://dhanushn.substack.com/)
 
-Hacktoberfest 2024 OPEN FIRST Pull Request - SUPPORT OPEN SOURCE
+Hacktoberfest 2025 OPEN FIRST Pull Request - SUPPORT OPEN SOURCE
 
-![HacktoberFest 2023](https://github.com/DhanushNehru/Hacktoberfest/raw/main/.github/logo.png)
+![HacktoberFest 2025](https://github.com/DhanushNehru/Hacktoberfest/raw/main/.github/logo.png)
 
 ## This Project Is Perfect For Your First Pull Request
 
@@ -173,9 +173,3 @@ I will recommend you make a pull request to your own repo which is very very saf
 Keep in mind that the repo has hacktoberfest topic.
 '''
 ```
-
-## Gitpod
-
-In the cloud-free development environment where you can directly start coding.
-
-You can use Gitpod in the cloud [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/DhanushNehru/Hacktoberfest2024/)

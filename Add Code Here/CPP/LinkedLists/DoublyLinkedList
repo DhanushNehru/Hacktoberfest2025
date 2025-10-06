@@ -1,0 +1,125 @@
+#include <iostream>
+
+using namespace std;
+struct Node {
+    int data;
+    Node* next;
+    Node* prev;
+
+    Node(int val) : data(val), next(nullptr), prev(nullptr) {}
+};
+
+// Class for the doubly linked list
+class DoublyLinkedList {
+private:
+    Node* head;
+
+public:
+    // Constructor
+    DoublyLinkedList() : head(nullptr) {}
+
+    // Destructor to free memory
+    ~DoublyLinkedList() {
+        Node* current = head;
+        while (current != nullptr) {
+            Node* nextNode = current->next;
+            delete current;
+            current = nextNode;
+        }
+    }
+
+    // Insert a new node at the end
+    void insert(int val) {
+        Node* newNode = new Node(val);
+        if (!head) {
+            head = newNode;
+            return;
+        }
+        
+        Node* temp = head;
+        while (temp->next != nullptr) {
+            temp = temp->next;
+        }
+        
+        temp->next = newNode;
+        newNode->prev = temp;
+    }
+
+    // Delete a node by value
+    void deleteNode(int val) {
+        if (!head) return;
+
+        Node* temp = head;
+
+        // Find the node to delete
+        while (temp != nullptr && temp->data != val) {
+            temp = temp->next;
+        }
+
+        // If node was not found
+        if (!temp) return;
+
+        // Adjust pointers for the previous and next nodes
+        if (temp->prev) {
+            temp->prev->next = temp->next;
+        } else {
+            head = temp->next;  // Update head if needed
+        }
+
+        if (temp->next) {
+            temp->next->prev = temp->prev;
+        }
+
+        delete temp;  // Free memory
+    }
+
+    // Display the list from head to tail
+    void displayForward() const {
+        Node* temp = head;
+        while (temp != nullptr) {
+            cout << temp->data << " ";
+            temp = temp->next;
+        }
+        cout << endl;
+    }
+
+    // Display the list from tail to head
+    void displayBackward() const {
+        if (!head) return;
+
+        Node* temp = head;
+        
+        // Move to the end of the list
+        while (temp->next != nullptr) {
+            temp = temp->next;
+        }
+
+        
+        while (temp != nullptr) {
+            cout << temp->data << " ";
+            temp = temp->prev;
+        }
+        cout << endl;
+    }
+};
+
+int main() {
+    DoublyLinkedList dll;
+
+    dll.insert(10);
+    dll.insert(20);
+    dll.insert(30);
+
+    cout << "List in forward direction: ";
+    dll.displayForward();
+
+    cout << "List in backward direction: ";
+    dll.displayBackward();
+
+    dll.deleteNode(20);
+    
+    cout << "After deleting 20, forward direction: ";
+    dll.displayForward();
+
+    return 0;
+}

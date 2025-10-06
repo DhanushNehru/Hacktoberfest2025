@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f0feff;
+    color: #333333;
+    font-family: Arial, sans-serif;
+}
+
+header, footer {
+    background-color: #4d0000;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    transition: background-color 0.3s ease-in-out;
+}
+
+header:hover, footer:hover {
+    background-color: #657900;
+}
+
+header h1, footer p {
+    margin: 0;
+}
+
+main {
+    text-align: center;
+}
+
+.game-image {
+    width: 100%; /* Adjust width as needed */
+    max-width: 150px; /* Limit the maximum width */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 20px; /* Spacing below the image */
+    padding: 1.5rem;
+}
+
+#playerInput {
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+}
+
+input[type="color"] {
+    margin: 5px;
+    padding: 10px;
+}
+
+.color-preview {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    border: 2px solid #dddddd;
+    margin: 5px;
+    border-radius: 5px;
+    vertical-align: middle;
+}
+
+button {
+    background-color: #39a728;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.hidden {
+    display: none;
+}
+
+.current-player {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    justify-content: center;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    cursor: pointer;
+}
+
+.cell.x {
+    color: #ff0000;
+}
+
+.cell.o {
+    color: #0000ff;
+}
+
+#winnerMessage {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}

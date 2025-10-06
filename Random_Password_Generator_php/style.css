@@ -1,0 +1,19 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+form {
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+label, input, button {
+  display: block;
+  margin: 10px 0;
+}
+
+#generatedPassword {
+  font-weight: bold;
+  color: green;
+}

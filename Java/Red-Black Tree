@@ -1,0 +1,421 @@
+What is a Red-Black Tree?
+A Red-Black Tree is a self-balancing binary search tree where each node has an additional attribute: a color, which can be either red or black. The primary objective of these trees is to maintain balance during insertions and deletions, ensuring efficient data retrieval and manipulation.
+
+Properties of Red-Black Trees
+A Red-Black Tree have the following properties:
+
+Node Color: Each node is either red or black.
+Root Property: The root of the tree is always black.
+Red Property: Red nodes cannot have red children (no two consecutive red nodes on any path).
+Black Property: Every path from a node to its descendant null nodes (leaves) has the same number of black nodes.
+Leaf Property: All leaves (NIL nodes) are black.
+These properties ensure that the longest path from the root to any leaf is no more than twice as long as the shortest path, maintaining the tree’s balance and efficient performance.
+Why Red-Black Trees?
+Most of the BST operations (e.g., search, max, min, insert, delete.. etc) take O(h) time where h is the height of the BST. The cost of these operations may become O(n) for a skewed Binary tree. If we make sure that the height of the tree remains O(log n) after every insertion and deletion, then we can guarantee an upper bound of O(log n) for all these operations. The height of a Red-Black tree is always O(log n) where n is the number of nodes in the tree. 
+
+Sr. No.	Algorithm	Time Complexity
+1.	Search	O(log n)
+2.	Insert	O(log n)
+3.	Delete	O(log n)
+Interesting points about Red-Black Tree:
+The black height of the red-black tree is the number of black nodes on a path from the root node to a leaf node. Leaf nodes are also counted as black nodes. So, a red-black tree of height h has black height >= h/2.
+Height of a red-black tree with n nodes is h<= 2 log2(n + 1).
+All leaves (NIL) are black.
+The black depth of a node is defined as the number of black nodes from the root to that node i.e the number of black ancestors.
+Basic Operations on Red-Black Tree:
+The basic operations on a Red-Black Tree include:
+
+Insertion
+Search
+Deletion
+Rotation
+1. Insertion
+Inserting a new node in a Red-Black Tree involves a two-step process: performing a standard binary search tree (BST) insertion, followed by fixing any violations of Red-Black properties.
+
+Insertion Steps
+BST Insert: Insert the new node like in a standard BST.
+Fix Violations:
+If the parent of the new node is black, no properties are violated.
+If the parent is red, the tree might violate the Red Property, requiring fixes.
+Fixing Violations During Insertion
+After inserting the new node as a red node, we might encounter several cases depending on the colors of the node’s parent and uncle (the sibling of the parent):
+
+Case 1: Uncle is Red: Recolor the parent and uncle to black, and the grandparent to red. Then move up the tree to check for further violations.
+Case 2: Uncle is Black:
+Sub-case 2.1: Node is a right child: Perform a left rotation on the parent.
+Sub-case 2.2: Node is a left child: Perform a right rotation on the grandparent and recolor appropriately.
+2. Searching
+Searching for a node in a Red-Black Tree is similar to searching in a standard Binary Search Tree (BST). The search operation follows a straightforward path from the root to a leaf, comparing the target value with the current node’s value and moving left or right accordingly.
+
+Search Steps
+Start at the Root: Begin the search at the root node.
+Traverse the Tree:
+If the target value is equal to the current node’s value, the node is found.
+If the target value is less than the current node’s value, move to the left child.
+If the target value is greater than the current node’s value, move to the right child.
+Repeat: Continue this process until the target value is found or a NIL node is reached (indicating the value is not present in the tree).
+. Deletion
+Deleting a node from a Red-Black Tree also involves a two-step process: performing the BST deletion, followed by fixing any violations that arise.
+
+Deletion Steps
+BST Deletion: Remove the node using standard BST rules.
+Fix Double Black:
+If a black node is deleted, a “double black” condition might arise, which requires specific fixes.
+Fixing Violations During Deletion
+When a black node is deleted, we handle the double black issue based on the sibling’s color and the colors of its children:
+
+Case 1: Sibling is Red: Rotate the parent and recolor the sibling and parent.
+Case 2: Sibling is Black:
+Sub-case 2.1: Sibling’s children are black: Recolor the sibling and propagate the double black upwards.
+Sub-case 2.2: At least one of the sibling’s children is red:
+If the sibling’s far child is red: Perform a rotation on the parent and sibling, and recolor appropriately.
+If the sibling’s near child is red: Rotate the sibling and its child, then handle as above.
+4. Rotation
+Rotations are fundamental operations in maintaining the balanced structure of a Red-Black Tree (RBT). They help to preserve the properties of the tree, ensuring that the longest path from the root to any leaf is no more than twice the length of the shortest path. Rotations come in two types: left rotations and right rotations.
+Left Rotation
+A left rotation at node 𝑥x moves 𝑥x down to the left and its right child 𝑦y up to take 𝑥x’s place.
+Before Rotation:
+
+    x                                              
+     \                                             
+      y                                                         
+     / \                                                     
+    a   b                                                     
+
+After Left Rotation:
+
+      y
+     / \
+    x   b
+     \
+      a
+Left Rotation Steps:
+Set y to be the right child of x.
+Move y’s left subtree to x’s right subtree.
+Update the parent of x and y.
+Update x’s parent to point to y instead of x.
+Set y’s left child to x.
+Update x’s parent to y.
+Pseudocode of Left Rotation:
+// Utility function to perform left rotation in a binary tree
+void leftRotate(Node x) {
+    Node y = x.right;  // Store the right child of x
+    x.right = y.left;  // Move y's left subtree to x's right subtree
+    
+    if (y.left != null) {  // If y's left subtree exists, set its parent to x
+        y.left.parent = x;
+    }
+    
+    y.parent = x.parent;  // Set y's parent to x's parent
+    
+    // Update the root if x was the root
+    if (x.parent == null) {
+        root = y;
+    } 
+    // Otherwise, update the parent's left or right child reference
+    else if (x == x.parent.left) {
+        x.parent.left = y;
+    } else {
+        x.parent.right = y;
+    }
+    
+    y.left = x;  // Make x the left child of y
+    x.parent = y;  // Update x's parent to y
+}
+
+Right Rotation
+A right rotation at node 𝑥x moves 𝑥x down to the right and its left child 𝑦y up to take 𝑥x’s place.
+
+
+
+
+
+Befor Right Rotation:    
+
+      x
+     /
+    y
+   / \
+  a   b
+
+After Right Rotation:
+
+    y
+   / \
+  a   x
+     /
+    b
+Right Rotation Steps:
+Set y to be the left child of x.
+Move y’s right subtree to x’s left subtree.
+Update the parent of x and y.
+Update x’s parent to point to y instead of x.
+Set y’s right child to x.
+Update x’s parent to y.
+Pseudocode of Right Rotation:
+// Utility function to perform right rotation in a binary tree
+void rightRotate(Node x) {
+    Node y = x.left;  // Store the left child of x
+    x.left = y.right;  // Move y's right subtree to x's left subtree
+
+    if (y.right != null) {  // If y's right subtree exists, set its parent to x
+        y.right.parent = x;
+    }
+
+    y.parent = x.parent;  // Set y's parent to x's parent
+
+    // Update the root if x was the root
+    if (x.parent == null) {
+        root = y;
+    } 
+    // Otherwise, update the parent's right or left child reference
+    else if (x == x.parent.right) {
+        x.parent.right = y;
+    } else {
+        x.parent.left = y;
+    }
+
+    y.right = x;  // Make x the right child of y
+    x.parent = y;  // Update x's parent to y
+}
+When to Perform Rotations?
+Rotations in Red-Black Trees are typically performed during insertions and deletions to maintain the properties of the tree. Below are the scenarios for rotations:
+
+1. Fixing Violations after Insertion
+When a new node is inserted, it is always colored red. This can create violations of Red-Black Tree properties, specifically:
+
+The root must be black.
+Red nodes cannot have red children.
+Case Analysis for Fixing Insertions:
+
+Case 1: Recoloring and Propagating Upwards
+If the parent and uncle of the new node are both red, recolor the parent and uncle to black, and the grandparent to red. Then, recursively apply the fix-up to the grandparent.
+Case 2: Rotation and Recoloring
+If the new node’s uncle is black and the new node is the right child of a left child (or vice versa), perform a rotation to move the new node up and align it.
+If the new node’s uncle is black and the new node is the left child of a left child (or right of a right), perform a rotation and recolor the parent and grandparent to fix the violation.
+2. Fixing Violations after Deletion
+After deletion, the tree might need fixing to restore properties:
+
+When a black node is removed, or a red node is replaced by a black node, a double-black situation can arise.
+Case Analysis for Fixing Deletions:
+
+Case 1: Sibling is Red
+Recolor the sibling and the parent, and perform a rotation.
+Case 2: Sibling is Black with Black Children
+Recolor the sibling to red and move the problem up to the parent.
+Case 3: Sibling is Black with at least one Red Child
+Rotate and recolor to fix the double-black issue.
+Implementation of Red-Black Tree:
+Here’s a detailed implementation of a Red-Black Tree including insertion, search, and rotation functions:
+import java.util.*;
+
+class Node {
+    int data;
+    String color;
+    Node left, right, parent;
+
+    // Constructor for a new Node
+    public Node(int data) {
+        this.data = data;
+        this.color = "RED"; // New nodes are initially red
+        this.left = null;
+        this.right = null;
+        this.parent = null;
+    }
+}
+
+class RedBlackTree {
+    private Node root;
+    private final Node NIL;
+
+    // Constructor for RedBlackTree
+    public RedBlackTree() {
+        NIL = new Node(0);
+        NIL.color = "BLACK";
+        NIL.left = NIL.right = NIL;
+        root = NIL;
+    }
+
+    // Utility function to perform left rotation
+    private void leftRotate(Node x) {
+        Node y = x.right;
+        x.right = y.left;
+        if (y.left != NIL) {
+            y.left.parent = x;
+        }
+        y.parent = x.parent;
+        if (x.parent == null) {
+            root = y;
+        } else if (x == x.parent.left) {
+            x.parent.left = y;
+        } else {
+            x.parent.right = y;
+        }
+        y.left = x;
+        x.parent = y;
+    }
+
+    // Utility function to perform right rotation
+    private void rightRotate(Node x) {
+        Node y = x.left;
+        x.left = y.right;
+        if (y.right != NIL) {
+            y.right.parent = x;
+        }
+        y.parent = x.parent;
+        if (x.parent == null) {
+            root = y;
+        } else if (x == x.parent.right) {
+            x.parent.right = y;
+        } else {
+            x.parent.left = y;
+        }
+        y.right = x;
+        x.parent = y;
+    }
+
+    // Fix violations after insertion
+    private void fixInsert(Node k) {
+        while (k != root && k.parent.color.equals("RED")) {
+            if (k.parent == k.parent.parent.left) {
+                Node u = k.parent.parent.right; // Uncle
+                if (u.color.equals("RED")) {
+                    k.parent.color = "BLACK";
+                    u.color = "BLACK";
+                    k.parent.parent.color = "RED";
+                    k = k.parent.parent;
+                } else {
+                    if (k == k.parent.right) {
+                        k = k.parent;
+                        leftRotate(k);
+                    }
+                    k.parent.color = "BLACK";
+                    k.parent.parent.color = "RED";
+                    rightRotate(k.parent.parent);
+                }
+            } else {
+                Node u = k.parent.parent.left; // Uncle
+                if (u.color.equals("RED")) {
+                    k.parent.color = "BLACK";
+                    u.color = "BLACK";
+                    k.parent.parent.color = "RED";
+                    k = k.parent.parent;
+                } else {
+                    if (k == k.parent.left) {
+                        k = k.parent;
+                        rightRotate(k);
+                    }
+                    k.parent.color = "BLACK";
+                    k.parent.parent.color = "RED";
+                    leftRotate(k.parent.parent);
+                }
+            }
+        }
+        root.color = "BLACK";
+    }
+
+    // Insert a new node
+    public void insert(int data) {
+        Node newNode = new Node(data);
+        newNode.left = NIL;
+        newNode.right = NIL;
+
+        Node parent = null;
+        Node current = root;
+
+        // BST insert
+        while (current != NIL) {
+            parent = current;
+            if (newNode.data < current.data) {
+                current = current.left;
+            } else {
+                current = current.right;
+            }
+        }
+
+        newNode.parent = parent;
+
+        if (parent == null) {
+            root = newNode; // Tree was empty
+        } else if (newNode.data < parent.data) {
+            parent.left = newNode;
+        } else {
+            parent.right = newNode;
+        }
+
+        if (newNode.parent == null) {
+            newNode.color = "BLACK";
+            return;
+        }
+
+        if (newNode.parent.parent == null) {
+            return;
+        }
+
+        fixInsert(newNode);
+    }
+
+    // Inorder traversal helper function
+    private void inorderHelper(Node node) {
+        if (node != NIL) {
+            inorderHelper(node.left);
+            System.out.print(node.data + " ");
+            inorderHelper(node.right);
+        }
+    }
+
+    // Inorder traversal
+    public void inorder() {
+        inorderHelper(root);
+    }
+
+    // Search helper function
+    private Node searchHelper(Node node, int data) {
+        if (node == NIL || data == node.data) {
+            return node;
+        }
+
+        if (data < node.data) {
+            return searchHelper(node.left, data);
+        }
+        return searchHelper(node.right, data);
+    }
+
+    // Search for a node with a given value
+    public Node search(int data) {
+        return searchHelper(root, data);
+    }
+
+    public static void main(String[] args) {
+        RedBlackTree rbt = new RedBlackTree();
+
+        // Inserting elements
+        rbt.insert(10);
+        rbt.insert(20);
+        rbt.insert(30);
+        rbt.insert(15);
+
+        // Inorder traversal
+        System.out.println("Inorder traversal:");
+        rbt.inorder(); // Output: 10 15 20 30
+
+        // Search for a node
+        System.out.println("\nSearch for 15: " + (rbt.search(15) != rbt.search(0))); // Output: true
+        System.out.println("Search for 25: " + (rbt.search(25) != rbt.search(0))); // Output: false
+    }
+}
+Advantages of Red-Black Trees:
+Balanced: Red-Black Trees are self-balancing, meaning they automatically maintain a balance between the heights of the left and right subtrees. This ensures that search, insertion, and deletion operations take O(log n) time in the worst case.
+Efficient search, insertion, and deletion: Due to their balanced structure, Red-Black Trees offer efficient operations. Search, insertion, and deletion all take O(log n) time in the worst case.
+Simple to implement: The rules for maintaining the Red-Black Tree properties are relatively simple and straightforward to implement.
+Widely used: Red-Black Trees are a popular choice for implementing various data structures, such as maps, sets, and priority queues.
+Disadvantages of Red-Black Trees:
+More complex than other balanced trees: Compared to simpler balanced trees like AVL trees, Red-Black Trees have more complex insertion and deletion rules.
+Constant overhead: Maintaining the Red-Black Tree properties adds a small overhead to every insertion and deletion operation.
+Not optimal for all use cases: While efficient for most operations, Red-Black Trees might not be the best choice for applications where frequent insertions and deletions are required, as the constant overhead can become significant.
+Applications of Red-Black Trees:
+Implementing maps and sets: Red-Black Trees are often used to implement maps and sets, where efficient search, insertion, and deletion are crucial.
+Priority queues: Red-Black Trees can be used to implement priority queues, where elements are ordered based on their priority.
+File systems: Red-Black Trees are used in some file systems to manage file and directory structures.
+In-memory databases: Red-Black Trees are sometimes used in in-memory databases to store and retrieve data efficiently.
+Graphics and game development: Red-Black Trees can be used in graphics and game development for tasks like collision detection and pathfinding.

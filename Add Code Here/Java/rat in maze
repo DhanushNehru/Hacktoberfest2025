@@ -1,0 +1,62 @@
+import java.util.ArrayList;
+
+public class RatInAMaze {
+
+    /*
+    Problem:
+    Given a maze as a 2D grid, find all possible paths for a rat to go from 
+    the top-left (0,0) to the bottom-right (n-1,n-1). The rat can move 
+    down (D), left (L), right (R), or up (U) only on open paths (1s).
+    
+    Input:
+    - A 2D maze array where 1 = open path, 0 = blocked.
+    Output:
+    - List of strings representing all valid paths.
+    */
+
+    public static ArrayList<String> findPaths(int[][] maze, int n) {
+        ArrayList<String> result = new ArrayList<>();
+        if (maze[0][0] == 0 || maze[n-1][n-1] == 0) return result;  // No path if start or end is blocked
+        boolean[][] visited = new boolean[n][n];
+        findPathsUtil(maze, 0, 0, n, visited, "", result);  // Start the recursive search
+        return result;
+    }
+
+    private static void findPathsUtil(int[][] maze, int x, int y, int n, boolean[][] visited, String path, ArrayList<String> result) {
+        if (x == n - 1 && y == n - 1) {  // If destination is reached, add path
+            result.add(path);
+            return;
+        }
+
+        visited[x][y] = true;  // Mark the cell as visited
+
+        // Move in all four directions if it's safe
+        if (isSafe(maze, x + 1, y, n, visited)) findPathsUtil(maze, x + 1, y, n, visited, path + "D", result);  // Down
+        if (isSafe(maze, x, y - 1, n, visited)) findPathsUtil(maze, x, y - 1, n, visited, path + "L", result);  // Left
+        if (isSafe(maze, x, y + 1, n, visited)) findPathsUtil(maze, x, y + 1, n, visited, path + "R", result);  // Right
+        if (isSafe(maze, x - 1, y, n, visited)) findPathsUtil(maze, x - 1, y, n, visited, path + "U", result);  // Up
+
+        visited[x][y] = false;  // Backtrack: Unmark the cell
+    }
+
+    private static boolean isSafe(int[][] maze, int x, int y, int n, boolean[][] visited) {
+        return (x >= 0 && x < n && y >= 0 && y < n && maze[x][y] == 1 && !visited[x][y]);  // Check bounds, path, and visit status
+    }
+
+    public static void main(String[] args) {
+        int[][] maze = { {1, 0, 0, 0},
+                         {1, 1, 0, 1},
+                         {0, 1, 0, 0},
+                         {1, 1, 1, 1} };
+
+        ArrayList<String> paths = findPaths(maze, maze.length);
+        
+        if (paths.isEmpty()) {
+            System.out.println("No possible paths.");
+        } else {
+            System.out.println("Possible paths: " + paths);
+        }
+    }
+}
+
+

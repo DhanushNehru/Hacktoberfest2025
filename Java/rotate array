@@ -1,0 +1,34 @@
+class Solution {
+    public void swap(int left,int right,int[] nums){
+        int temp=nums[left];
+        nums[left]=nums[right];
+        nums[right]=temp;
+
+    }
+    public void rotate(int[] nums, int k) {
+        int n=nums.length;
+         k=k%n;
+          int left=n-k,right=n-1;
+          while(left<right){
+            swap(left,right,nums);
+            left++;
+            right--;
+        }
+         left=0;
+        right=n-k-1;
+       while(left<right){
+            swap(left,right,nums);
+            left++;
+            right--;
+        }
+        
+        left=0;right=n-1;
+          while(left<right){
+            swap(left,right,nums);
+            left++;
+            right--;
+        }
+        
+
+    }
+}

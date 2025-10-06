@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Tic Tac Toe</h1>
+    </header>
+
+    <main>
+        <img src="img-tit-tac-toe.gif" alt="Tic Tac Toe" class="game-image">
+        <div id="playerInput" class="player-input">
+            <h2>Enter Player Details</h2>
+            <input type="text" id="player1Name" placeholder="Enter Player 1 Name">
+            <input type="color" id="player1Color" value="#ff0000">
+            <input type="text" id="player2Name" placeholder="Enter Player 2 Name">
+            <input type="color" id="player2Color" value="#0000ff">
+            <button id="startGameButton">Start Game</button>
+            <div id="colorPreviewContainer">
+                <div class="color-preview" id="player1ColorPreview"></div>
+                <div class="color-preview" id="player2ColorPreview"></div>
+            </div>
+        </div>
+
+        <div id="gameBoard" class="hidden">
+            <div id="currentPlayer" class="current-player"></div>
+            <div class="board">
+                <div class="cell" data-index="0"></div>
+                <div class="cell" data-index="1"></div>
+                <div class="cell" data-index="2"></div>
+                <div class="cell" data-index="3"></div>
+                <div class="cell" data-index="4"></div>
+                <div class="cell" data-index="5"></div>
+                <div class="cell" data-index="6"></div>
+                <div class="cell" data-index="7"></div>
+                <div class="cell" data-index="8"></div>
+            </div>
+            <div id="winnerMessage" class="hidden"></div>
+            <button id="tryAgainButton" class="hidden">Try Again</button>
+        </div>
+
+        <div id="gameOverScreen" class="game-over-screen hidden">
+            <p>Game Over!</p>
+            <p>Your Score: <span id="finalScore">0</span></p>
+            <button id="tryAgainButton">Try Again</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Sharath. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

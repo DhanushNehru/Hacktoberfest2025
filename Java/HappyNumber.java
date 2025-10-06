@@ -1,5 +1,5 @@
 // Iterative Solution
-class Solution {
+class HappyNumber {
     public boolean isHappy(int N) {
         
         do {
