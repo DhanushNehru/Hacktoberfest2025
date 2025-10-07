@@ -5,7 +5,7 @@
 [![Subscribe on YouTube](https://img.shields.io/badge/YouTube-Subscribe-red?logo=youtube&style=for-the-badge)](https://www.youtube.com/@dhanushnehru?sub_confirmation=1)
 [![Subscribe to Newsletter](https://img.shields.io/badge/Newsletter-Subscribe-orange?style=for-the-badge)](https://dhanushn.substack.com/)
 
-Hacktoberfest 2025 OPEN FIRST Pull Request - SUPPORT OPEN SOURCE
+Hacktoberfest 2025 OPEN FIRST Pull Request - CONTRIBUTE IN OPEN SOURCE!
 
 ![HacktoberFest 2025](https://github.com/DhanushNehru/Hacktoberfest/raw/main/.github/logo.png)
 
@@ -19,10 +19,13 @@ Hacktoberfest 2025 OPEN FIRST Pull Request - SUPPORT OPEN SOURCE
 
 <img src="https://img.shields.io/badge/hacktoberfest-2024-greenviolet" alt="Hacktober Badge"/>
  <img src="https://img.shields.io/static/v1?label=%F0%9F%8C%9F&message=If%20Useful&style=style=flat&color=BC4E99" alt="Star Badge"/>
+ 
  <a href="https://github.com/DhanushNehru" ><img src="https://img.shields.io/badge/Contributions-welcome-violet.svg?style=flat&logo=git" alt="Contributions" /></a>
 
 <a href="https://github.com/DhanushNehru/hacktoberfest/pulls"><img src="https://img.shields.io/github/issues-pr/DhanushNehru/Hacktoberfest" alt="Pull Requests Badge"/></a>
+
 <a href="https://github.com/DhanushNehru/hacktoberfest/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/DhanushNehru/hacktoberfest?color=2b9348"></a>
+
 <a href="https://github.com/DhanushNehru/hacktoberfest/blob/master/LICENSE"><img src="https://img.shields.io/github/license/DhanushNehru/hacktoberfest?color=2b9348" alt="License Badge"/></a>
 
 </div>
@@ -39,7 +42,7 @@ You can refer to the following articles on the basics of Git and Github.
 - [Getting started with Git and GitHub](https://towardsdatascience.com/getting-started-with-git-and-github-6fcd0f2d4ac6)
 - [Watch this on Why Everyone Should Contribute to Open Source ( Even If You Can’t Code! )](https://youtu.be/bI8hwl-dTuY?si=FGs5EygkpuaEuSqu)
 
-## INSTRUCTIONS-
+## INSTRUCTIONS
 
 - **Fork** this Repository using the button at the top on the right corner.
 - **Clone** your forked repository to your PC ( git clone "url from clone option.)
@@ -50,7 +53,8 @@ You can refer to the following articles on the basics of Git and Github.
 - Create a pull request
 - Star this repository
 
-### ⭐ How to make a pull request (PR)
+## ⭐ How to make a pull request? (PR)
+
 **1.** Start by making a Fork of the [**Hacktoberfest**](https://github.com/DhanushNehru/Hacktoberfest) repository. Click on the <a href="https://github.com/DhanushNehru/Hacktoberfest/fork"><img src="https://i.imgur.com/G4z1kEe.png" height="21" width="21"></a>Fork symbol at the top right corner.
 
 **2.** Clone your new fork of the repository in the terminal/CLI on your computer with the following command:
@@ -108,63 +112,7 @@ git push origin YourBranchName
 
 **11.** **Congratulations!** You've made your first contribution to [**Hacktoberfest**]
 
-
-
-# How To Make Your First Pull Request
-
-Replace `<YOUR-USERNAME>` with your GitHub username in this guide.
-
-## 1. Add your profile picture to the folder
-
-Add a picture of your choice in `static/images/`. Accepted files are **png** and **jpg**, should be squared and minimum size 544x544 pixels. Ex.
-
-```
-static/images/<YOUR-USERNAME>.png
-```
-
-
-## 2. Add your profile information
-
-Create a markdown file in your folder following the convention `content/participant/<YOUR-USERNAME>.md`. Ex.
-
-```
-content/participant/<YOUR-USERNAME>.md
-```
-
-Copy the next template into your file, delete the boilerplate data and fill the information with yours.
-
-```
----
-name: YOURNAME
-institution/company: INSTITUTION_NAME
-github: USERNAME
----
-```
-
-<div align="center">
-<h2> OR </h2>
-</div>
-
-## 3. Create / Upload Your Code / Algorithms
-
-Create/Upload your code in the folder following the convention `Add Code Here`
-- Choose an extract language folder `drop your code`
-- Below is `an example` to add file properly
-- You can follow up `any languages`
-```
-Add Code Here/PYTHON/<YOUR-FILERNAME>.py
-```
-```
-Add Code Here/C++/<YOUR-FILERNAME>.cpp
-```
-You can follow any pathway a `code` or `profile information`
-
-## 4. Wait for Pull Request to merge
-
-## 5. Celebrate - you've done your first pull request!!
-
 ```py
-'''
 Always make more than 4 pull requests.
 Let's say you have made only 4 pull requests to different projects,
 but one project is excluded from hackoctoberfest event then your pull request will not be counted and 
@@ -172,5 +120,42 @@ then you have the remaining 3 valid pull requests if these projects are not excl
 If you fail to make 4 pull requests then you can't get swags or t-shirts.
 I will recommend you make a pull request to your own repo which is very very safe for you.
 Keep in mind that the repo has hacktoberfest topic.
-'''
 ```
+
+
+# Different Ways to make Pull Requests 
+
+Replace `<YOUR-USERNAME>` with your GitHub username in this guide.
+
+### 1. Add your profile picture and profile information to the folder
+
+Add a picture of your choice in `static/images/`. Accepted files are **png** and **jpg**, should be squared and minimum size 544x544 pixels. Ex.
+```
+static/images/<YOUR-USERNAME>.png
+```
+
+Create a markdown file in your folder following the convention `content/participant/<YOUR-USERNAME>.md`. Ex.
+```
+content/participant/<YOUR-USERNAME>.md
+```
+
+Copy the next template into your file, delete the boilerplate data and fill the information with yours.
+```
+---
+Name: YOUR_NAME
+Institution/Company: INSTITUTION_NAME
+Github: USERNAME
+---
+```
+
+### 2. Create / Upload Your Code / Algorithms
+
+Create/Upload your code in the folder following the convention `Add Code Here`
+- Choose an extract language folder `drop your code`
+- Below is an example to add file properly
+- You can follow up `any languages`
+```
+Add Code Here/<ANY_LANGUAGE>/<YOUR-FILERNAME>.py
+```
+You can follow any pathway a `code` or `profile information` to make a pull request!
+
