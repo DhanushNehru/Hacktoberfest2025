@@ -3,6 +3,34 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Sieve_of_eratosthenes",
+      "request": "launch",
+      "mainClass": "Sieve_of_eratosthenes",
+      "projectName": "Hacktoberfest2025_e79c0f54"
+    },
+    {
+      "type": "java",
+      "name": "Sieve_of_eratosthenes",
+      "request": "launch",
+      "mainClass": "Java.Sieve_of_eratosthenes",
+      "projectName": "Hacktoberfest2025_e79c0f54"
+    },
+    {
+      "type": "java",
+      "name": "Sieve_of_Eratosthenes",
+      "request": "launch",
+      "mainClass": "Java.Sieve_of_Eratosthenes",
+      "projectName": "Hacktoberfest2025_e79c0f54"
+    },
+    {
+      "type": "java",
+      "name": "Main",
+      "request": "launch",
+      "mainClass": "Java.Main",
+      "projectName": "Hacktoberfest2025_e79c0f54"
+    },
+    {
+      "type": "java",
       "name": "Roulette",
       "request": "launch",
       "mainClass": "Java.Roulette",
