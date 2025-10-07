@@ -1,0 +1,18 @@
+dict={}
+n=int(input('enter no of passwords to be entered'))
+for i in range(n):
+    t=''
+    org=input('enter org password')
+    for i in org[::-1]:
+        t+=i+'#'
+        dict[org]=t
+num=int(input('enter no of passwords to be changed'))
+for i in range(num):
+    k=''
+    og=input('enter org password')
+    cg=input('enter new password')
+    dict.pop(og)
+    for i in cg[::-1]:
+        k+=i+'#'
+        dict[cg]=k
+print(dict)
