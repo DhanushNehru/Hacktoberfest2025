@@ -1,0 +1,16 @@
+import cv2
+
+# Read the image
+img = cv2.imread("input.jpg")
+
+# Rotate 90 degrees clockwise
+rotated_90 = cv2.rotate(img, cv2.ROTATE_90_CLOCKWISE)
+cv2.imwrite("rotated_cv2_90.jpg", rotated_90)
+
+# Rotate 180 degrees
+rotated_180 = cv2.rotate(img, cv2.ROTATE_180)
+cv2.imwrite("rotated_cv2_180.jpg", rotated_180)
+
+# Rotate 90 degrees counterclockwise
+rotated_90_ccw = cv2.rotate(img, cv2.ROTATE_90_COUNTERCLOCKWISE)
+cv2.imwrite("rotated_cv2_90_ccw.jpg", rotated_90_ccw)
