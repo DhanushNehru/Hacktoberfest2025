@@ -1,0 +1,75 @@
+{
+  "tasks": [
+    {
+      "name": "open_terminal",
+      "type": "application",
+      "description": "Open a terminal emulator",
+      "patterns": [
+        "open terminal",
+        "launch terminal",
+        "start console",
+        "open kitty",
+        "open alacritty"
+      ],
+      "action": {
+        "command": "kitty",
+        "args": [],
+        "fallback_commands": ["alacritty", "konsole", "gnome-terminal"]
+      },
+      "response_template": "Opening terminal for you, sir"
+    },
+    {
+      "name": "open_browser",
+      "type": "application",
+      "description": "Open web browser",
+      "patterns": [
+        "open browser",
+        "launch firefox",
+        "start chrome",
+        "open brave",
+        "browse the web"
+      ],
+      "action": {
+        "command": "firefox",
+        "args": [],
+        "fallback_commands": ["brave", "chromium", "google-chrome-stable"]
+      },
+      "response_template": "Launching web browser"
+    },
+    {
+      "name": "open_code_editor",
+      "type": "application",
+      "description": "Open code editor",
+      "patterns": [
+        "open code",
+        "open vscode",
+        "open editor",
+        "start coding",
+        "open neovim"
+      ],
+      "action": {
+        "command": "code",
+        "args": [],
+        "fallback_commands": ["nvim", "vim", "emacs", "kate"]
+      },
+      "response_template": "Opening code editor for you"
+    },
+    {
+      "name": "open_file_manager",
+      "type": "application",
+      "description": "Open file manager",
+      "patterns": [
+        "open files",
+        "file manager",
+        "open folder",
+        "browse files"
+      ],
+      "action": {
+        "command": "thunar",
+        "args": [],
+        "fallback_commands": ["dolphin", "nautilus", "pcmanfm", "ranger"]
+      },
+      "response_template": "Opening file manager"
+    }
+  ]
+}

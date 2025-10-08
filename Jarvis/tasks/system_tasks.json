@@ -1,0 +1,148 @@
+{
+  "tasks": [
+    {
+      "name": "system_info",
+      "type": "system",
+      "description": "Get system information",
+      "patterns": [
+        "system info",
+        "system status",
+        "how much ram",
+        "cpu usage",
+        "disk space",
+        "system resources"
+      ],
+      "action": {
+        "command": "custom_function",
+        "function": "get_system_info"
+      },
+      "response_template": "Here's your system information: {result}"
+    },
+    {
+      "name": "brightness_up",
+      "type": "system",
+      "description": "Increase screen brightness",
+      "patterns": [
+        "brightness up",
+        "brighter",
+        "increase brightness",
+        "screen brighter"
+      ],
+      "action": {
+        "command": "brightnessctl",
+        "args": ["set", "+10%"]
+      },
+      "response_template": "Brightness increased"
+    },
+    {
+      "name": "brightness_down",
+      "type": "system",
+      "description": "Decrease screen brightness",
+      "patterns": [
+        "brightness down",
+        "dimmer",
+        "decrease brightness",
+        "screen dimmer"
+      ],
+      "action": {
+        "command": "brightnessctl",
+        "args": ["set", "10%-"]
+      },
+      "response_template": "Brightness decreased"
+    },
+    {
+      "name": "wifi_status",
+      "type": "system",
+      "description": "Check WiFi status",
+      "patterns": [
+        "wifi status",
+        "network status",
+        "am i connected",
+        "internet status"
+      ],
+      "action": {
+        "command": "nmcli",
+        "args": ["general", "status"]
+      },
+      "response_template": "Checking network status: {result}"
+    },
+    {
+      "name": "bluetooth_on",
+      "type": "system",
+      "description": "Turn on Bluetooth",
+      "patterns": [
+        "bluetooth on",
+        "enable bluetooth",
+        "turn on bluetooth"
+      ],
+      "action": {
+        "command": "bluetoothctl",
+        "args": ["power", "on"]
+      },
+      "response_template": "Bluetooth enabled"
+    },
+    {
+      "name": "bluetooth_off",
+      "type": "system",
+      "description": "Turn off Bluetooth",
+      "patterns": [
+        "bluetooth off",
+        "disable bluetooth",
+        "turn off bluetooth"
+      ],
+      "action": {
+        "command": "bluetoothctl",
+        "args": ["power", "off"]
+      },
+      "response_template": "Bluetooth disabled"
+    },
+    {
+      "name": "empty_trash",
+      "type": "system",
+      "description": "Empty trash",
+      "patterns": [
+        "empty trash",
+        "clear trash",
+        "delete trash",
+        "clean trash"
+      ],
+      "action": {
+        "command": "rm",
+        "args": ["-rf", "~/.local/share/Trash/*"]
+      },
+      "response_template": "Trash emptied"
+    },
+    {
+      "name": "show_calendar",
+      "type": "system",
+      "description": "Show calendar",
+      "patterns": [
+        "show calendar",
+        "what's the date",
+        "what day is it",
+        "calendar"
+      ],
+      "action": {
+        "command": "cal",
+        "args": []
+      },
+      "response_template": "Here's the calendar: {result}"
+    },
+    {
+      "name": "system_update",
+      "type": "system",
+      "description": "Update system packages",
+      "patterns": [
+        "update system",
+        "system update",
+        "update packages",
+        "upgrade system"
+      ],
+      "action": {
+        "command": "kitty",
+        "args": ["-e", "sudo", "pacman", "-Syu"]
+      },
+      "response_template": "Starting system update in terminal"
+    }
+  ]
+}

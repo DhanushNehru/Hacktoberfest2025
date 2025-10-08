@@ -1,0 +1,51 @@
+{
+  "tasks": [
+    {
+      "name": "shutdown",
+      "type": "system",
+      "description": "Shutdown the system",
+      "patterns": [
+        "shutdown",
+        "power off",
+        "turn off computer"
+      ],
+      "action": {
+        "command": "systemctl",
+        "args": ["poweroff"],
+        "confirmation_required": true
+      },
+      "response_template": "Shutting down the system"
+    },
+    {
+      "name": "reboot",
+      "type": "system",
+      "description": "Reboot the system",
+      "patterns": [
+        "reboot",
+        "restart computer",
+        "restart system"
+      ],
+      "action": {
+        "command": "systemctl",
+        "args": ["reboot"],
+        "confirmation_required": true
+      },
+      "response_template": "Rebooting the system"
+    },
+    {
+      "name": "suspend",
+      "type": "system",
+      "description": "Suspend the system",
+      "patterns": [
+        "suspend",
+        "sleep",
+        "hibernate"
+      ],
+      "action": {
+        "command": "systemctl",
+        "args": ["suspend"]
+      },
+      "response_template": "Suspending the system"
+    }
+  ]
+}

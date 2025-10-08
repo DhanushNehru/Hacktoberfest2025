@@ -1,0 +1,100 @@
+{
+  "tasks": [
+    {
+      "name": "open_terminal",
+      "type": "application",
+      "description": "Open a terminal emulator",
+      "patterns": [
+        "open terminal",
+        "launch terminal",
+        "start console"
+      ],
+      "action": {
+        "command": "kitty",
+        "args": []
+      },
+      "response_template": "Opening terminal for you"
+    },
+    {
+      "name": "open_browser",
+      "type": "application",
+      "description": "Open web browser",
+      "patterns": [
+        "open browser",
+        "launch firefox",
+        "start chrome"
+      ],
+      "action": {
+        "command": "firefox",
+        "args": []
+      },
+      "response_template": "Launching web browser"
+    },
+    {
+      "name": "system_info",
+      "type": "system",
+      "description": "Get system information",
+      "patterns": [
+        "system info",
+        "system status",
+        "how much ram",
+        "cpu usage"
+      ],
+      "action": {
+        "command": "custom_function",
+        "function": "get_system_info"
+      },
+      "response_template": "Here's your system information: {result}"
+    },
+    {
+      "name": "volume_control",
+      "type": "system",
+      "description": "Control system volume",
+      "patterns": [
+        "volume up",
+        "volume down",
+        "mute",
+        "unmute"
+      ],
+      "action": {
+        "command": "pactl",
+        "args_template": "set-sink-volume @DEFAULT_SINK@ {volume}"
+      },
+      "response_template": "Volume adjusted"
+    },
+    {
+      "name": "workspace_switch",
+      "type": "system",
+      "description": "Switch Hyprland workspace",
+      "patterns": [
+        "workspace",
+        "switch to workspace",
+        "go to workspace"
+      ],
+      "action": {
+        "command": "hyprctl",
+        "args_template": "dispatch workspace {number}"
+      },
+      "response_template": "Switching to workspace {number}"
+    },
+    {
+      "name": "take_screenshot",
+      "type": "system",
+      "description": "Take a screenshot",
+      "patterns": [
+        "take screenshot",
+        "capture screen",
+        "screenshot"
+      ],
+      "action": {
+        "command": "grim",
+        "args": [
+          "-g",
+          "$(slurp)",
+          "~/Pictures/screenshot_$(date +%Y%m%d_%H%M%S).png"
+        ]
+      },
+      "response_template": "Screenshot captured and saved"
+    }
+  ]
+}

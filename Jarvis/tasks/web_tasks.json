@@ -1,0 +1,36 @@
+{
+  "tasks": [
+    {
+      "name": "search_web",
+      "type": "web",
+      "description": "Search the web",
+      "patterns": [
+        "search for",
+        "google",
+        "look up",
+        "find information about"
+      ],
+      "action": {
+        "command": "xdg-open",
+        "args_template": "https://www.google.com/search?q={query}"
+      },
+      "response_template": "Searching the web for {query}"
+    },
+    {
+      "name": "weather",
+      "type": "web",
+      "description": "Get weather information",
+      "patterns": [
+        "weather",
+        "what's the weather",
+        "temperature outside",
+        "how's the weather"
+      ],
+      "action": {
+        "command": "curl",
+        "args": ["-s", "wttr.in?format=3"]
+      },
+      "response_template": "Current weather: {result}"
+    }
+  ]
+}

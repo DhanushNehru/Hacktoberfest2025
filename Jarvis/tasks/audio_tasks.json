@@ -1,0 +1,100 @@
+{
+  "tasks": [
+    {
+      "name": "volume_up",
+      "type": "system",
+      "description": "Increase volume",
+      "patterns": [
+        "volume up",
+        "increase volume",
+        "louder",
+        "turn up volume"
+      ],
+      "action": {
+        "command": "pactl",
+        "args": ["set-sink-volume", "@DEFAULT_SINK@", "+10%"]
+      },
+      "response_template": "Volume increased by 10 percent"
+    },
+    {
+      "name": "volume_down",
+      "type": "system",
+      "description": "Decrease volume",
+      "patterns": [
+        "volume down",
+        "decrease volume",
+        "quieter",
+        "turn down volume"
+      ],
+      "action": {
+        "command": "pactl",
+        "args": ["set-sink-volume", "@DEFAULT_SINK@", "-10%"]
+      },
+      "response_template": "Volume decreased by 10 percent"
+    },
+    {
+      "name": "mute",
+      "type": "system",
+      "description": "Mute audio",
+      "patterns": [
+        "mute",
+        "silence",
+        "mute audio",
+        "turn off sound"
+      ],
+      "action": {
+        "command": "pactl",
+        "args": ["set-sink-mute", "@DEFAULT_SINK@", "toggle"]
+      },
+      "response_template": "Audio muted"
+    },
+    {
+      "name": "play_music",
+      "type": "application",
+      "description": "Play music",
+      "patterns": [
+        "play music",
+        "start music",
+        "play some music",
+        "music please"
+      ],
+      "action": {
+        "command": "playerctl",
+        "args": ["play"],
+        "fallback_commands": ["spotify", "ncmpcpp"]
+      },
+      "response_template": "Playing music"
+    },
+    {
+      "name": "pause_music",
+      "type": "application",
+      "description": "Pause music",
+      "patterns": [
+        "pause music",
+        "stop music",
+        "pause playback"
+      ],
+      "action": {
+        "command": "playerctl",
+        "args": ["pause"]
+      },
+      "response_template": "Music paused"
+    },
+    {
+      "name": "next_track",
+      "type": "application",
+      "description": "Skip to next track",
+      "patterns": [
+        "next song",
+        "skip song",
+        "next track",
+        "skip this"
+      ],
+      "action": {
+        "command": "playerctl",
+        "args": ["next"]
+      },
+      "response_template": "Skipping to next track"
+    }
+  ]
+}
