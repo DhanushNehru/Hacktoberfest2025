@@ -5,21 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Temperature Converter</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>Temperature Converter</h1>
-        <input type="number" id="temperature" placeholder="Enter temperature">
-        <select id="unit">
-            <option value="celsius">Celsius</option>
-            <option value="fahrenheit">Fahrenheit</option>
-            <option value="kelvin">Kelvin</option>
-        </select>
-        <button onclick="convertTemperature()">Convert</button>
-        <p id="result"></p>
-    </div>
+    <main class="app">
+        <section class="card" aria-labelledby="title">
+            <header class="card-header">
+                <div class="logo" aria-hidden="true">°</div>
+                <div>
+                    <h1 id="title">Temperature Converter</h1>
+                    <p class="subtitle">Fast, precise and delightful conversions</p>
+                </div>
+            </header>
+
+            <form class="controls" onsubmit="event.preventDefault(); convertTemperature();" aria-label="Temperature conversion form">
+                <label class="field">
+                    <span class="label-text">Temperature</span>
+                    <input type="number" id="temperature" placeholder="Enter temperature" step="any" inputmode="numeric" aria-required="true">
+                </label>
+
+                <label class="field">
+                    <span class="label-text">Unit</span>
+                    <select id="unit" aria-label="Select temperature unit">
+                        <option value="celsius">Celsius (°C)</option>
+                        <option value="fahrenheit">Fahrenheit (°F)</option>
+                        <option value="kelvin">Kelvin (K)</option>
+                    </select>
+                </label>
+
+                <div class="actions">
+                    <button type="submit" class="btn primary" id="convertBtn">Convert</button>
+                    <button type="button" class="btn ghost" id="clearBtn">Clear</button>
+                </div>
+            </form>
+
+            <div id="result" class="result" role="status" aria-live="polite"></div>
+
+            <footer class="card-footer">
+                <small>Precision: 2 decimal places • Built with care</small>
+            </footer>
+        </section>
+    </main>
+
     <script src="script.js"></script>
 </body>
 </html>

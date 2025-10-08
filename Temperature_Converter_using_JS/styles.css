@@ -1,40 +1,77 @@
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #2dbade;
+:root{
+    --bg:#0f1724; /* deep navy */
+    --card:#0b1220;
+    --muted:#9aa4b2;
+    --accent:#00d4ff;
+    --glass: rgba(255,255,255,0.04);
+    --radius:14px;
 }
 
-.container {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+    margin:0;
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    background: linear-gradient(135deg,var(--bg) 0%, #071021 100%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:32px;
+    color:#e6eef6;
 }
 
-input {
-    padding: 10px;
-    margin: 10px 0;
-    width: 80%;
+.app{width:100%;max-width:760px}
+.card{
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+    border-radius:var(--radius);
+    padding:22px;
+    box-shadow: 0 10px 30px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,0.04);
+    backdrop-filter: blur(6px) saturate(120%);
+    transition: transform .35s cubic-bezier(.2,.9,.2,1), box-shadow .35s;
+}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(2,6,23,0.75)}
+
+.card-header{display:flex;gap:16px;align-items:center;margin-bottom:8px}
+.logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#6dd5fa);display:flex;align-items:center;justify-content:center;font-weight:700;color:#012;box-shadow:0 8px 24px rgba(0,212,255,0.12);font-size:28px}
+h1{font-size:20px;margin:0}
+.subtitle{margin:0;color:var(--muted);font-size:13px}
+
+.controls{display:grid;grid-template-columns:1fr 160px;gap:14px;align-items:end;margin-top:18px}
+.field{display:flex;flex-direction:column}
+.label-text{font-size:12px;color:var(--muted);margin-bottom:6px}
+input[type=number], select{
+    appearance:none; -webkit-appearance:none;
+    padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:var(--glass);color:inherit;font-size:15px;outline:none;transition: box-shadow .18s, transform .18s;
+}
+input[type=number]:focus, select:focus{box-shadow:0 6px 18px rgba(0,0,0,0.5), 0 0 0 4px rgba(0,212,255,0.06);transform:translateY(-2px)}
+
+.actions{display:flex;gap:10px}
+.btn{padding:11px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);cursor:pointer;font-weight:600}
+.btn.primary{background:linear-gradient(90deg,var(--accent),#68f1ff);color:#012;border:none;box-shadow:0 8px 22px rgba(0,212,255,0.12)}
+.btn.ghost{background:transparent;color:var(--muted)}
+.btn:active{transform:translateY(1px)}
+
+.result{margin-top:18px;padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);min-height:56px;display:flex;align-items:center;justify-content:center;font-size:16px;color:#dffaff;opacity:0;transform:translateY(8px);transition:opacity .28s ease, transform .28s ease}
+.result.show{opacity:1;transform:translateY(0)}
+.result.error{color:#ffd2d2;background:linear-gradient(180deg, rgba(255,80,80,0.06), rgba(255,80,80,0.03));border-color:rgba(255,80,80,0.12)}
+
+.card-footer{margin-top:12px;text-align:right;color:var(--muted);font-size:12px}
+
+@media (max-width:640px){
+    .controls{grid-template-columns:1fr;}
+    .actions{justify-content:stretch}
 }
 
-button {
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+/* subtle entrance animation for the whole card */
+@keyframes popIn{from{opacity:0;transform:translateY(10px) scale(.998)}to{opacity:1;transform:none}}
+.card{animation:popIn .45s cubic-bezier(.2,.9,.2,1) both}
 
-button:hover {
-    background-color: #45a049;
+/* small highlight pulse used when result updates */
+@keyframes pulse {
+    0%{box-shadow:0 0 0 0 rgba(0,212,255,0.14)}
+    70%{box-shadow:0 0 0 18px rgba(0,212,255,0)}
+    100%{box-shadow:0 0 0 0 rgba(0,212,255,0)}
 }
-
-#result {
-    margin-top: 20px;
-    font-size: 18px;
-}
+.result.pulse{animation:pulse .9s ease-out}
