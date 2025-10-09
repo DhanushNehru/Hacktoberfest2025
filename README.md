@@ -5,7 +5,7 @@
 [![Subscribe on YouTube](https://img.shields.io/badge/YouTube-Subscribe-red?logo=youtube&style=for-the-badge)](https://www.youtube.com/@dhanushnehru?sub_confirmation=1)
 [![Subscribe to Newsletter](https://img.shields.io/badge/Newsletter-Subscribe-orange?style=for-the-badge)](https://dhanushn.substack.com/)
 
-Hacktoberfest 2025 OPEN FIRST Pull Request - SUPPORT OPEN SOURCE
+Hacktoberfest 2025 OPEN FIRST Pull Request - SUPPORT OPEN SOURCE PROJECTS
 
 ![HacktoberFest 2025](https://github.com/DhanushNehru/Hacktoberfest/raw/main/.github/logo.png)
 
