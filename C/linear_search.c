@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 int main() {
     int arr[] = {2, 4, 8, 12, 16, 18};
     int l = sizeof(arr);
