@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nike - Pseudo Landing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --accent:#111;
+      --primary:#111;
+      --muted:#6b7280;
+      --glass: rgba(255,255,255,0.06);
+      --card-bg:#fff;
+    }
+    *{box-sizing:border-box}
+    body{
+      font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      margin:0; color:var(--primary); background:#f7f7f8;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* Header */
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;background:#fff;box-shadow:0 2px 8px rgba(15,23,42,0.06);position:sticky;top:0;z-index:50}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand .logo{font-weight:800;letter-spacing:1px;font-size:20px}
+    .nav-links{display:flex;gap:18px;align-items:center}
+    .nav-links a{color:var(--muted);text-decoration:none;font-weight:600}
+    .nav-actions{display:flex;gap:12px;align-items:center}
+    .btn{padding:10px 14px;border-radius:10px;border:none;background:var(--primary);color:#fff;font-weight:700;cursor:pointer}
+    .ghost{background:transparent;border:1px solid #e5e7eb;color:var(--primary)}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:40px;align-items:center;padding:56px 6vw}
+    .eyebrow{color:var(--muted);font-weight:600}
+    .title{font-size:48px;line-height:1.02;margin:10px 0;font-weight:800}
+    .subtitle{color:var(--muted);max-width:560px}
+    .cta-row{margin-top:22px;display:flex;gap:12px}
+    .hero-right{position:relative}
+    .shoe-card{background:linear-gradient(180deg, #fff, #fff);border-radius:16px;padding:20px;box-shadow:0 10px 30px rgba(2,6,23,0.08);display:flex;align-items:center;gap:18px}
+    .shoe-img{width:220px;height:160px;background:#f3f4f6;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+    .price{font-weight:800;font-size:20px}
+
+    /* Products grid */
+    .section{padding:36px 6vw}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
+    .card{background:var(--card-bg);border-radius:12px;padding:14px;box-shadow:0 6px 18px rgba(15,23,42,0.06);display:flex;flex-direction:column}
+    .product-thumb{height:160px;border-radius:8px;background:#f3f4f6;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .prod-title{font-weight:700;margin:10px 0}
+    .prod-meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted)}
+    .add{background:#111;color:#fff;padding:8px 10px;border-radius:8px;border:none;cursor:pointer}
+
+    /* Footer */
+    footer{padding:28px 6vw;background:#fff;margin-top:36px;border-top:1px solid #f1f5f9}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;gap:20px;padding:28px}
+      .hero-right{order:-1}
+      .title{font-size:34px}
+    }
+
+    /* Small utilities */
+    .small{font-size:13px;color:var(--muted)}
+    .center{display:flex;align-items:center;justify-content:center}
+
+    /* Modal */
+    .overlay{position:fixed;inset:0;background:rgba(2,6,23,0.45);display:none;align-items:center;justify-content:center}
+    .modal{width:520px;background:#fff;border-radius:12px;padding:18px}
+    .close{background:transparent;border:none;font-weight:800;cursor:pointer}
+
+    /* Mobile nav */
+    .menu-btn{display:none}
+    @media (max-width:700px){.nav-links{display:none}.menu-btn{display:inline-flex}}
+
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="brand">
+      <div class="logo">NIKE</div>
+      <div class="small">Just Pseudo It</div>
+    </div>
+    <div class="nav-links">
+      <a href="#">Men</a>
+      <a href="#">Women</a>
+      <a href="#">Kids</a>
+      <a href="#">Sports</a>
+    </div>
+    <div class="nav-actions">
+      <button class="ghost small">Search</button>
+      <button class="ghost small">Wishlist</button>
+      <button class="btn" id="cartBtn">Cart (0)</button>
+      <button class="menu-btn ghost" id="mobileMenu">☰</button>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <div class="eyebrow">New Release</div>
+      <h1 class="title">Speed. Comfort. Style.</h1>
+      <p class="subtitle">Explore the latest performance running shoes — engineered for speed and designed for everyday wear. Lightweight materials, responsive cushioning and bold style.</p>
+      <div class="cta-row">
+        <button class="btn">Shop Now</button>
+        <button class="ghost">Explore Collection</button>
+      </div>
+
+      <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap">
+        <div style="background:#fff;padding:12px;border-radius:10px;box-shadow:0 8px 20px rgba(2,6,23,0.04)">
+          <div class="small">Free delivery</div>
+          <div style="font-weight:700">On orders over ₹1999</div>
+        </div>
+        <div style="background:#fff;padding:12px;border-radius:10px;box-shadow:0 8px 20px rgba(2,6,23,0.04)">
+          <div class="small">Easy returns</div>
+          <div style="font-weight:700">30 days policy</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="shoe-card">
+        <div class="shoe-img">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=60" alt="shoe" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <div style="flex:1;text-align:left">
+          <div style="font-weight:800">React Runner 2025</div>
+          <div class="small">Lightweight • Breathable • Responsive</div>
+          <div style="margin-top:10px;display:flex;justify-content:space-between;align-items:center">
+            <div class="price">₹7,499</div>
+            <button class="add" onclick="addToCart(1)">Add to cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:16px;display:flex;gap:12px">
+        <div style="flex:1;background:linear-gradient(180deg,#fff,#fbfbfd);padding:12px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.04)">
+          <div style="font-weight:700">Runner Lite</div>
+          <div class="small">From ₹4,999</div>
+        </div>
+        <div style="width:120px;background:linear-gradient(180deg,#fff,#fbfbfd);padding:12px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.04)">
+          <div style="font-weight:700">New Arrivals</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <h3 style="margin:0 0 12px 0">Featured Products</h3>
+      <div class="grid" id="productGrid"></div>
+    </section>
+
+    <section class="section">
+      <h3 style="margin:0 0 12px 0">Best Sellers</h3>
+      <div class="grid" id="bestSellers"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+      <div>
+        <div style="font-weight:800">NIKE</div>
+        <div class="small">© Pseudo Nike. Demo site only.</div>
+      </div>
+      <div class="small">Terms · Privacy · Support</div>
+    </div>
+  </footer>
+
+  <!-- Modal / Cart -->
+  <div class="overlay" id="overlay">
+    <div class="modal">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div style="font-weight:800">Your Cart</div>
+        <button class="close" onclick="closeCart()">✕</button>
+      </div>
+      <div id="cartList" style="margin-top:12px"></div>
+      <div style="margin-top:16px;display:flex;justify-content:space-between;align-items:center">
+        <div class="small">Total</div>
+        <div id="cartTotal" style="font-weight:800">₹0</div>
+      </div>
+      <div style="margin-top:12px;display:flex;gap:8px">
+        <button class="btn">Checkout</button>
+        <button class="ghost" onclick="clearCart()">Clear</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Sample product data
+    const products = [
+      {id:1,title:'React Runner 2025',price:7499, img:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=60'},
+      {id:2,title:'Air Zoom Pixel',price:5999, img:'https://images.unsplash.com/photo-1528701800489-476f4e6d7c46?auto=format&fit=crop&w=800&q=60'},
+      {id:3,title:'TrailBlaze Pro',price:8999, img:'https://images.unsplash.com/photo-1542293787938-c9e299b880d0?auto=format&fit=crop&w=800&q=60'},
+      {id:4,title:'Court Master',price:4999, img:'https://images.unsplash.com/photo-1519741491668-0a6a4a1f8f77?auto=format&fit=crop&w=800&q=60'},
+      {id:5,title:'Everyday Flex',price:3499, img:'https://images.unsplash.com/photo-1518552782571-1e6b1b9f6f8a?auto=format&fit=crop&w=800&q=60'},
+      {id:6,title:'Speed Run X',price:10999, img:'https://images.unsplash.com/photo-1542293787937-3325b2b4a8e4?auto=format&fit=crop&w=800&q=60'},
+      {id:7,title:'Retro Classic',price:2999, img:'https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=800&q=60'},
+      {id:8,title:'Trainer Elite',price:6499, img:'https://images.unsplash.com/photo-1528701800488-7f9f5a8f0f38?auto=format&fit=crop&w=800&q=60'}
+    ];
+
+    const cart = {};
+
+    function formatRupee(n){
+      return '₹' + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+
+    function renderGrid(){
+      const grid = document.getElementById('productGrid');
+      grid.innerHTML = '';
+      products.slice(0,6).forEach(p=>{
+        const el = document.createElement('div'); el.className='card';
+        el.innerHTML = `
+          <div class="product-thumb"><img src="${p.img}" alt="${p.title}" style="width:100%;height:100%;object-fit:cover"></div>
+          <div class="prod-title">${p.title}</div>
+          <div class="prod-meta"><div class="small">${p.title.split(' ')[1] || ''}</div><div style="font-weight:800">${formatRupee(p.price)}</div></div>
+          <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center">
+            <button class="ghost" onclick="quickView(${p.id})">Quick View</button>
+            <button class="add" onclick="addToCart(${p.id})">Add</button>
+          </div>
+        `;
+        grid.appendChild(el);
+      })
+    }
+
+    function renderBest(){
+      const grid = document.getElementById('bestSellers');
+      grid.innerHTML = '';
+      products.slice(2,8).forEach(p=>{
+        const el = document.createElement('div'); el.className='card';
+        el.innerHTML = `
+          <div class="product-thumb"><img src="${p.img}" alt="${p.title}" style="width:100%;height:100%;object-fit:cover"></div>
+          <div class="prod-title">${p.title}</div>
+          <div class="prod-meta"><div class="small">Popular</div><div style="font-weight:800">${formatRupee(p.price)}</div></div>
+          <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center">
+            <button class="ghost" onclick="quickView(${p.id})">Quick View</button>
+            <button class="add" onclick="addToCart(${p.id})">Add</button>
+          </div>
+        `;
+        grid.appendChild(el);
+      })
+    }
+
+    function addToCart(id){
+      const p = products.find(x=>x.id===id);
+      if(!cart[id]) cart[id] = {...p, qty:0};
+      cart[id].qty += 1;
+      updateCartUI();
+    }
+
+    function updateCartUI(){
+      const count = Object.values(cart).reduce((s,i)=>s+i.qty,0);
+      document.getElementById('cartBtn').textContent = `Cart (${count})`;
+      // update modal list
+      const list = document.getElementById('cartList');
+      list.innerHTML = '';
+      let total = 0;
+      Object.values(cart).forEach(item=>{
+        total += item.price * item.qty;
+        const row = document.createElement('div');
+        row.style.display='flex';row.style.justifyContent='space-between';row.style.marginTop='8px';
+        row.innerHTML = `<div>${item.title} × ${item.qty}</div><div>${formatRupee(item.price*item.qty)}</div>`;
+        list.appendChild(row);
+      });
+      document.getElementById('cartTotal').textContent = formatRupee(total);
+    }
+
+    function quickView(id){
+      const p = products.find(x=>x.id===id);
+      const overlay = document.getElementById('overlay');
+      overlay.style.display='flex';
+      const list = document.getElementById('cartList');
+      list.innerHTML = `<div style="display:flex;gap:12px"><img src="${p.img}" style="width:120px;height:80px;object-fit:cover;border-radius:8px"><div><div style="font-weight:800">${p.title}</div><div class="small">Price: ${formatRupee(p.price)}</div><div class="small" style="margin-top:8px">A lightweight shoe for daily runs and gym sessions.</div></div></div>`;
+      document.getElementById('cartTotal').textContent = formatRupee(p.price);
+    }
+
+    function closeCart(){ document.getElementById('overlay').style.display='none'; }
+    function clearCart(){ for(const k in cart) delete cart[k]; updateCartUI(); closeCart(); }
+
+    document.getElementById('cartBtn').addEventListener('click', ()=>{ document.getElementById('overlay').style.display='flex'; updateCartUI(); });
+    document.getElementById('overlay').addEventListener('click', (e)=>{ if(e.target.id==='overlay') closeCart(); });
+
+    // init
+    renderGrid(); renderBest();
+  </script>
+</body>
+</html>
