@@ -6,16 +6,16 @@ using namespace std;
 int binarySearch(const vector<int>& arr, int x) {
     int l = 0, r = arr.size() - 1;
     while (l <= r) {
-        int mid = l + ((r - l) >> 1); // Avoid potential overflow with right shift
+        int mid = l + ((r - l) >> 1);
         
         if (arr[mid] < x)
             l = mid + 1;
         else if (arr[mid] > x)
             r = mid - 1;
         else
-            return mid; // Found
+            return mid;
     }
-    return -1; // Not found
+    return -1;
 }
 
 int main() {
@@ -25,13 +25,10 @@ int main() {
     for (int i = 0; i < n; i++)
         cin >> arr[i];
     
-    sort(arr.begin(), arr.end()); // Ensure array is sorted
+    sort(arr.begin(), arr.end()); 
     
     cin >> x;
     int result = binarySearch(arr, x);
-    if (result == -1)
-        cout << "Not found";
-    else
-        cout << "Found at index " << result;
+    cout << (result == -1 ? "Not found" : "Found at index " + to_string(result));
     return 0;
 }
