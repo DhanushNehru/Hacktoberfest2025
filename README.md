@@ -174,3 +174,11 @@ I will recommend you make a pull request to your own repo which is very very saf
 Keep in mind that the repo has hacktoberfest topic.
 '''
 ```
+---
+
+## 🤝 Contributing
+
+If you’d like to contribute, please read [CONTRIBUTING.md](CONTRIBUTING.md).  
+We also welcome you to open issues for ideas or improvements.  
+
+_Tag your issue with `good first issue` if you'd like to work on it._
