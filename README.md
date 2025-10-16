@@ -32,11 +32,12 @@ Hacktoberfest 2025 OPEN FIRST Pull Request - SUPPORT OPEN SOURCE
 
 You can refer to the following articles on the basics of Git and Github.
 
-- [Watch this video to get started, if you have no clue about open source](https://youtu.be/SYtPC9tHYyQ)
+- [Watch this video to get started, if you have no clue about open source](https://youtu.be/e-RfalOKSMI?si=WCX2nTelpvrQ8qt0)
 - [Forking a Repo](https://help.github.com/en/github/getting-started-with-github/fork-a-repo)
 - [Cloning a Repo](https://help.github.com/en/desktop/contributing-to-projects/creating-a-pull-request)
 - [How to create a Pull Request](https://opensource.com/article/19/7/create-pull-request-github)
 - [Getting started with Git and GitHub](https://towardsdatascience.com/getting-started-with-git-and-github-6fcd0f2d4ac6)
+- [Watch this on Why Everyone Should Contribute to Open Source ( Even If You Can’t Code! )](https://youtu.be/bI8hwl-dTuY?si=FGs5EygkpuaEuSqu)
 
 ## INSTRUCTIONS-
 
