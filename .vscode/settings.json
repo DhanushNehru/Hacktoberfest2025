@@ -60,5 +60,9 @@
     "Andhra",
     "Chittoor",
     "Pradesh"
-  ]
+  ],
+  "files.associations": {
+    "*.ejs": "html",
+    "vector": "cpp"
+  }
 }
