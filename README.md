@@ -1,4 +1,5 @@
-# Hacktoberfest 
+# Hacktoberfest
+
 ## Open Source Programs
 
 [![Join Our Discord](https://img.shields.io/badge/Discord-Join%20Server-blue?logo=discord&style=for-the-badge)](https://discord.com/invite/Yn9g6KuWyA)
@@ -28,6 +29,7 @@ Hacktoberfest 2025 OPEN FIRST Pull Request - SUPPORT OPEN SOURCE
 </div>
 
 ## ⭐ How to get started with open source?
+
 <img src="https://github.com/Vi1234sh12/Face-X/blob/master/.github/Assests/isometric.png" height="290px" align="right"/>
 
 You can refer to the following articles on the basics of Git and Github.
@@ -43,7 +45,7 @@ You can refer to the following articles on the basics of Git and Github.
 
 - **Fork** this Repository using the button at the top on the right corner.
 - **Clone** your forked repository to your PC ( git clone "url from clone option.)
-- Create a new branch for your modifications (ie. `git branch new-user and check it out `git checkout new-user` or simply do `git checkout -b new-user`)
+- Create a new branch for your modifications (ie. `git branch new-user and check it out `git checkout new-user`or simply do`git checkout -b new-user`)
 - Add your profile image in `static/images/` ( use drag and drop option or upload by commands.)
 - Add your profile data in `content/participant/`
 - Add your files (`git add -A`), commit (`git commit -m "added myself"`) and push (`git push origin new-user`)
@@ -51,12 +53,13 @@ You can refer to the following articles on the basics of Git and Github.
 - Star this repository
 
 ### ⭐ How to make a pull request (PR)
+
 **1.** Start by making a Fork of the [**Hacktoberfest**](https://github.com/DhanushNehru/Hacktoberfest) repository. Click on the <a href="https://github.com/DhanushNehru/Hacktoberfest/fork"><img src="https://i.imgur.com/G4z1kEe.png" height="21" width="21"></a>Fork symbol at the top right corner.
 
 **2.** Clone your new fork of the repository in the terminal/CLI on your computer with the following command:
 
 ```bash
-git clone https://github.com/<your-github-username>/Hacktoberfest
+git clone https://github.com/inbuilt-aura/Hacktoberfest
 ```
 
 **3.** Navigate to the newly created PetMe project directory:
@@ -108,36 +111,33 @@ git push origin YourBranchName
 
 **11.** **Congratulations!** You've made your first contribution to [**Hacktoberfest**]
 
-
-
 # How To Make Your First Pull Request
 
-Replace `<YOUR-USERNAME>` with your GitHub username in this guide.
+Replace `inbuilt-aura` with your GitHub username in this guide.
 
 ## 1. Add your profile picture to the folder
 
 Add a picture of your choice in `static/images/`. Accepted files are **png** and **jpg**, should be squared and minimum size 544x544 pixels. Ex.
 
 ```
-static/images/<YOUR-USERNAME>.png
+static/images/inbuilt-aura.jpg
 ```
-
 
 ## 2. Add your profile information
 
 Create a markdown file in your folder following the convention `content/participant/<YOUR-USERNAME>.md`. Ex.
 
 ```
-content/participant/<YOUR-USERNAME>.md
+content/participant/inbuilt-aura.md
 ```
 
 Copy the next template into your file, delete the boilerplate data and fill the information with yours.
 
 ```
 ---
-name: YOURNAME
-institution/company: INSTITUTION_NAME
-github: USERNAME
+name: Aman Maddeshiya
+institution/company: CodeSaas
+github: github.com/inbuilt-aura
 ---
 ```
 
@@ -148,15 +148,19 @@ github: USERNAME
 ## 3. Create / Upload Your Code / Algorithms
 
 Create/Upload your code in the folder following the convention `Add Code Here`
+
 - Choose an extract language folder `drop your code`
 - Below is `an example` to add file properly
 - You can follow up `any languages`
+
 ```
 Add Code Here/PYTHON/<YOUR-FILERNAME>.py
 ```
+
 ```
 Add Code Here/C++/<YOUR-FILERNAME>.cpp
 ```
+
 You can follow any pathway a `code` or `profile information`
 
 ## 4. Wait for Pull Request to merge
@@ -167,7 +171,7 @@ You can follow any pathway a `code` or `profile information`
 '''
 Always make more than 4 pull requests.
 Let's say you have made only 4 pull requests to different projects,
-but one project is excluded from hackoctoberfest event then your pull request will not be counted and 
+but one project is excluded from hackoctoberfest event then your pull request will not be counted and
 then you have the remaining 3 valid pull requests if these projects are not excluded.
 If you fail to make 4 pull requests then you can't get swags or t-shirts.
 I will recommend you make a pull request to your own repo which is very very safe for you.
