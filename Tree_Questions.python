@@ -1,0 +1,137 @@
+#defining Node
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+#1.Binary Tree Traversals (Recursive)
+# Inorder: Left -> Root -> Right
+def inorder(root):
+    if root:
+        inorder(root.left)
+        print(root.data, end=' ')
+        inorder(root.right)
+
+# Preorder: Root -> Left -> Right
+def preorder(root):
+    if root:
+        print(root.data, end=' ')
+        preorder(root.left)
+        preorder(root.right)
+
+# Postorder: Left -> Right -> Root
+def postorder(root):
+    if root:
+        postorder(root.left)
+        postorder(root.right)
+        print(root.data, end=' ')
+#2.Binary Tree Traversals (Iterative using Stack)
+def iterative_inorder(root):
+    stack = []
+    current = root
+    while stack or current:
+        while current:
+            stack.append(current)
+            current = current.left
+        current = stack.pop()
+        print(current.data, end=' ')
+        current = current.right
+
+def iterative_preorder(root):
+    if not root:
+        return
+    stack = [root]
+    while stack:
+        node = stack.pop()
+        print(node.data, end=' ')
+        if node.right:
+            stack.append(node.right)
+        if node.left:
+            stack.append(node.left)
+
+def iterative_postorder(root):
+    if not root:
+        return
+    stack1 = [root]
+    stack2 = []
+    while stack1:
+        node = stack1.pop()
+        stack2.append(node)
+        if node.left:
+            stack1.append(node.left)
+        if node.right:
+            stack1.append(node.right)
+    while stack2:
+        print(stack2.pop().data, end=' ')
+#3.Level Order Traversal (BFS)
+from collections import deque
+
+def level_order(root):
+    if not root:
+        return
+    queue = deque([root])
+    while queue:
+        node = queue.popleft()
+        print(node.data, end=' ')
+        if node.left:
+            queue.append(node.left)
+        if node.right:
+            queue.append(node.right)
+#4.Height (Max Depth) of Binary Tree
+def height(root):
+    if not root:
+        return 0
+    return 1 + max(height(root.left), height(root.right))
+#5.Count Total Nodes
+def count_nodes(root):
+    if not root:
+        return 0
+    return 1 + count_nodes(root.left) + count_nodes(root.right)
+#6.Check if Two Trees are Identical
+def is_identical(root1, root2):
+    if not root1 and not root2:
+        return True
+    if root1 and root2:
+        return (root1.data == root2.data and
+                is_identical(root1.left, root2.left) and
+                is_identical(root1.right, root2.right))
+    return False
+#7.Diameter of Binary Tree
+def diameter(root):
+    def helper(node):
+        if not node:
+            return 0, 0  # height, diameter
+        lh, ld = helper(node.left)
+        rh, rd = helper(node.right)
+        height = 1 + max(lh, rh)
+        dia = max(lh + rh, ld, rd)
+        return height, dia
+    return helper(root)[1]
+#8.Mirror / Invert Binary Tree
+def mirror(root):
+    if root:
+        root.left, root.right = root.right, root.left
+        mirror(root.left)
+        mirror(root.right)
+    return root
+#9.Lowest Common Ancestor (LCA)
+def lca(root, n1, n2):
+    if not root:
+        return None
+    if root.data == n1 or root.data == n2:
+        return root
+    left = lca(root.left, n1, n2)
+    right = lca(root.right, n1, n2)
+    if left and right:
+        return root
+    return left if left else right
+#10.Check if Tree is Balanced
+def is_balanced(root):
+    def check(node):
+        if not node:
+            return 0, True
+        lh, left_bal = check(node.left)
+        rh, right_bal = check(node.right)
+        balanced = left_bal and right_bal and abs(lh - rh) <= 1
+        return 1 + max(lh, rh), balanced
+    return check(root)[1]
