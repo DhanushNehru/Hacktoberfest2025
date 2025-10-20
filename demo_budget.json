@@ -1,0 +1,52 @@
+{
+  "income": 5000,
+  "expenses": {
+    "groceries": 270,
+    "entertainment": 50,
+    "transportation": 80
+  },
+  "budgets": {
+    "groceries": 600,
+    "entertainment": 200,
+    "transportation": 300
+  },
+  "savings_goal": 1000,
+  "current_savings": 500,
+  "transactions": [
+    {
+      "date": "2025-09-30T20:41:29.099834",
+      "type": "expense",
+      "category": "groceries",
+      "amount": 150,
+      "description": "Weekly shopping"
+    },
+    {
+      "date": "2025-09-30T20:41:29.104095",
+      "type": "expense",
+      "category": "entertainment",
+      "amount": 50,
+      "description": "Movie tickets"
+    },
+    {
+      "date": "2025-09-30T20:41:29.106453",
+      "type": "expense",
+      "category": "transportation",
+      "amount": 80,
+      "description": "Gas"
+    },
+    {
+      "date": "2025-09-30T20:41:29.111835",
+      "type": "expense",
+      "category": "groceries",
+      "amount": 120,
+      "description": "Organic foods"
+    },
+    {
+      "date": "2025-09-30T20:41:29.115861",
+      "type": "savings",
+      "category": "savings",
+      "amount": 500,
+      "description": "Savings deposit"
+    }
+  ]
+}

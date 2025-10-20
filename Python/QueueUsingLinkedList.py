@@ -1,76 +1,80 @@
 # Python program to implement the queue data structure using linked lists.
-class Node:
-    def __init__(self, new_data):
-        self.data = new_data
-        self.next = None
 
-# Class to implement queue operations using a linked list
+# Node class represents each element in the queue
+class Node:
+    def __init__(self, data: int):
+        self.data = data  # Store the value of the node
+        self.next = None  # Pointer to the next node
+
+
+# Queue class implements queue operations using a linked list
 class Queue:
     def __init__(self):
-      
-        # Pointer to the front and the rear of the linked list
-        self.front = None
-        self.rear = None
+        # Pointers to the front and rear of the queue
+        self.front: Node | None = None
+        self.rear: Node | None = None
 
     # Function to check if the queue is empty
-    def is_empty(self):
-      
-        # If the front and rear are null, then the queue is
-        # empty, otherwise it's not
-        return self.front is None and self.rear is None
+    def is_empty(self) -> bool:
+        # If front is None, the queue is empty
+        return self.front is None
 
     # Function to add an element to the queue
-    def enqueue(self, new_data):
-      
-        # Create a new linked list node
-        new_node = Node(new_data)
+    def enqueue(self, data: int) -> None:
+        # Create a new node
+        new_node = Node(data)
 
-        # If queue is empty, the new node is both the front
-        # and rear
+        # If the queue is empty, the new node is both front and rear
         if self.rear is None:
             self.front = self.rear = new_node
             return
 
-        # Add the new node at the end of the queue and
-        # change rear
+        # Add the new node at the end and update rear
         self.rear.next = new_node
         self.rear = new_node
 
     # Function to remove an element from the queue
-    def dequeue(self):
-      
-        # If queue is empty, return
+    def dequeue(self) -> int | None:
+        # If the queue is empty, return None
         if self.is_empty():
             print("Queue Underflow")
-            return
+            return None
 
-        # Store previous front and move front one node
-        # ahead
-        temp = self.front
+        # Get the data from front node
+        removed_data = self.front.data
+
+        # Move front pointer to the next node
         self.front = self.front.next
 
-        # If front becomes null, then change rear also
-        # to null
+        # If front becomes None, then the queue is empty, so rear also becomes None
         if self.front is None:
             self.rear = None
 
+        # Return the removed data
+        return removed_data
+
     # Function to get the front element of the queue
-    def get_front(self):
-      
-        # Checking if the queue is empty
+    def get_front(self) -> int | None:
         if self.is_empty():
             print("Queue is empty")
-            return float('-inf')
+            return None
         return self.front.data
 
     # Function to get the rear element of the queue
-    def get_rear(self):
-      
-        # Checking if the queue is empty
+    def get_rear(self) -> int | None:
         if self.is_empty():
             print("Queue is empty")
-            return float('-inf')
+            return None
         return self.rear.data
+
+    # Function to display the queue elements
+    def __str__(self) -> str:
+        values = []
+        current = self.front
+        while current:
+            values.append(str(current.data))
+            current = current.next
+        return " <- ".join(values)
 
 
 # Driver code
@@ -81,22 +85,30 @@ if __name__ == "__main__":
     q.enqueue(10)
     q.enqueue(20)
 
-    # Display the front and rear elements of the queue
+    # Display the queue, front, and rear elements
+    print("Queue:", q)
     print("Queue Front:", q.get_front())
     print("Queue Rear:", q.get_rear())
 
     # Dequeue elements from the queue
-    q.dequeue()
-    q.dequeue()
+    print("Dequeued:", q.dequeue())
+    print("Dequeued:", q.dequeue())
 
-    # Enqueue more elements into the queue
+    # Display the queue after dequeue operations
+    print("Queue:", q)
+
+    # Enqueue more elements
     q.enqueue(30)
     q.enqueue(40)
     q.enqueue(50)
+    print("Queue:", q)
 
-    # Dequeue an element from the queue
-    q.dequeue()
+    # Dequeue an element
+    print("Dequeued:", q.dequeue())
 
-    # Display the front and rear elements of the queue
+    # Display the queue, front, and rear elements
+    print("Queue:", q)
     print("Queue Front:", q.get_front())
     print("Queue Rear:", q.get_rear())
+
+    

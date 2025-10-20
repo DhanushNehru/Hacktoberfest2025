@@ -1,0 +1,3 @@
+[submodule "MemoryCardGame"]
+	path = MemoryCardGame
+	url = https://github.com/gurram-lahari/memory-card-game.git
