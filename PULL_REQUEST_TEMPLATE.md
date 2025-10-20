@@ -3,8 +3,7 @@
 Thank you for contributing! Before you submit this Pull Request, please take a moment to:
 
 1. Follow the [maintainer](https://github.com/DhanushNehru) of the repository
-2. Join ongoing discussions https://github.com/DhanushNehru/Hacktoberfest2024/discussions/405 and make sure you voted.
-3. For a list of repositories that contribute towards Hacktoberfest refer [this](https://github.com/DhanushNehru/Hacktoberfest2025/discussions/522)
+2. Join ongoing discussions https://github.com/DhanushNehru/Hacktoberfest2025/discussions and make sure you voted.
 
 ---
 
