@@ -1,4 +1,4 @@
-use ndarray::{Array1, Array2, s};
+use ndarray::{Array1, Array2};
 use rand::distributions::{Distribution,Uniform};
 
 
@@ -29,7 +29,7 @@ impl NeuralNetwork {
 impl NeuralNetwork {
     pub fn forward(&self, x: &Array1<f32>) -> (Array1<f32>, Array1<f32>, Array1<f32>, Array1<f32>) {
         let z1 = x.dot(&self.w1) + &self.b1;
-        let a1 = z1.mapv(|v| v.max(0.0));
+        let a1 = z1.mapv(relu);
         let z2 = a1.dot(&self.w2) + &self.b2;
         let a2 = softmax(&z2);
         (z1, a1, z2, a2)

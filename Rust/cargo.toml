@@ -7,4 +7,6 @@ edition = "2024"
 [dependencies]
 ndarray = "0.15"            # For matrices and vectors
 rand = "0.8"                 # Random number generator
+csv = "1.3"                 # CSV reading/writing
+
 

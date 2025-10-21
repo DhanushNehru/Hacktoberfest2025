@@ -34,8 +34,16 @@ fn main() -> Result<(), Box<dyn Error>> {
     let (images, labels) = load_mnist_data("data/mnist_train.csv")?;
     let (x_train, x_test, y_train, y_test) = train_test_split(&images, &labels, 0.2);
 
-    let y_train_oh = one_hot_encode(&y_train, 10);
-    let y_test_oh = one_hot_encode(&y_test, 10);
+    let y_train_oh = {
+        let mut flat: Vec<f32> = Vec::with_capacity(y_train.len() * 10);
+        for &label in y_train.iter() {
+            let oh = one_hot_encode(label, 10);
+            flat.extend(oh.iter().cloned());
+        }
+        Array2::from_shape_vec((y_train.len(), 10), flat).unwrap()
+    };
+
+    // y_test is used directly for evaluation (as class labels), so we don't need a one-hot version here.
 
     let mut nn = NeuralNetwork::new(784, 64, 10);
 
@@ -43,7 +51,9 @@ fn main() -> Result<(), Box<dyn Error>> {
     let learning_rate = 0.01;
 
     for epoch in 0..epochs {
-        for (x, y) in x_train.outer_iter().zip(y_train_oh.outer_iter()) {
+        for (x_view, y_view) in x_train.outer_iter().zip(y_train_oh.outer_iter()) {
+            let x = x_view.to_owned();
+            let y = y_view.to_owned();
             let (z1, a1, _z2, a2) = nn.forward(&x);
             let (dw1, db1, dw2, db2) = nn.backward(&x, &y, &z1, &a1, &a2);
             nn.update(&dw1, &db1, &dw2, &db2, learning_rate);
@@ -52,7 +62,8 @@ fn main() -> Result<(), Box<dyn Error>> {
     }
 
     let mut correct = 0;
-    for (x, &y) in x_test.outer_iter().zip(y_test.iter()) {
+    for (x_view, &y) in x_test.outer_iter().zip(y_test.iter()) {
+        let x = x_view.to_owned();
         let (predicted_class, _) = nn.predict_single(&x);
         if predicted_class as u8 == y {
             correct += 1;
