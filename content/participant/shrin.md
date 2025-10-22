@@ -1,5 +1,5 @@
 ---
-name: Your Name Here
-institution/company: Your Institution/Company
-github: your-github-username
+name: Ansh Meshram
+institution/company: Coep tech
+github: AnshMeshram
 ---
