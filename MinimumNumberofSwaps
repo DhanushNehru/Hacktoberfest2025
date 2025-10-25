@@ -1,0 +1,25 @@
+def min_swaps(arr):
+    n = len(arr)
+    # Pair elements with their original indices
+    arr_pos = [(val, idx) for idx, val in enumerate(arr)]
+    arr_pos.sort(key=lambda x: x[0])
+    
+    visited = [False] * n
+    swaps = 0
+    
+    for i in range(n):
+        # If already visited or already in the right place
+        if visited[i] or arr_pos[i][1] == i:
+            continue
+        
+        cycle_size = 0
+        j = i
+        while not visited[j]:
+            visited[j] = True
+            j = arr_pos[j][1]  # Move to the next index in the cycle
+            cycle_size += 1
+        
+        if cycle_size > 0:
+            swaps += (cycle_size - 1)
+    
+    return swaps
