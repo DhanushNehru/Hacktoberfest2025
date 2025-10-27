@@ -1,0 +1,10 @@
+void generateSubsets(vector<int>& nums, int index, vector<int> current, vector<vector<int>>& result) {
+    if (index == nums.size()) {
+        result.push_back(current);
+        return;
+    }
+
+    generateSubsets(nums, index + 1, current, result); // exclude
+    current.push_back(nums[index]);
+    generateSubsets(nums, index + 1, current, result); // include
+}
