@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII Art Result</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: white;
+            font-family: monospace;
+            text-align: center;
+            padding: 20px;
+        }
+
+        img {
+            max-width: 90%;
+            height: auto;
+            margin-bottom: 20px;
+            border: 2px solid white;
+            border-radius: 10px;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            background: #2e2e2e;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            max-width: 90%;
+            overflow-x: auto;
+            text-align: left;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Original Image</h1>
+    <img src="{{ image_path }}" alt="Original Image">
+
+    <h1>ASCII Art</h1>
+    <pre>{{ ascii_art_content }}</pre>
+
+    <a href="/download_ascii">
+        <button>Download ASCII Art</button>
+    </a>
+
+</body>
+</html>
+    
