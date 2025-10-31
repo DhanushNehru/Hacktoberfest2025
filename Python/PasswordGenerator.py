@@ -1,46 +1,115 @@
-# import all the required packages
-# Visit : codewithcurious.com for more projects
+# ---------------------------------------------------------------
+# PASSWORD GENERATOR APP (Enhanced Version)
+# Visit: codewithcurious.com for more projects
+# ---------------------------------------------------------------
+
 from tkinter import *
 import random
 import pyperclip
 
-# To create a root window of GUI in python
-tk=Tk()
-tk.geometry('300x300')
-tk.configure(background='yellow')
+# ---------------------------------------------------------------
+#  Create main window
+# ---------------------------------------------------------------
+root = Tk()
+root.title("Password Generator")
+root.geometry("400x400")
+root.configure(background="#f4f4f4")  # Light gray background
 
-# To store/retrieve the string value entered by user
-pswd=StringVar()
+# ---------------------------------------------------------------
+#  Define variables for user input and generated password
+# ---------------------------------------------------------------
+password_var = StringVar()  # Stores the generated password
+length_var = IntVar()       # Stores the user-selected length
 
-# To store/retrieve the Integer value entered by user
-passlen=IntVar()
-passlen.set('Enter Length')
+# ---------------------------------------------------------------
+#  Options for including characters
+# ---------------------------------------------------------------
+include_upper = BooleanVar(value=True)
+include_lower = BooleanVar(value=True)
+include_digits = BooleanVar(value=True)
+include_symbols = BooleanVar(value=True)
 
-# Function to generate a random password
-def password_generator():
-    characters='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 !@#$%^&*()'
-    password=''
-    if passlen.get()>=8:
-        for i in range(passlen.get()):
-            password+=random.choice(characters)
-        pswd.set(password)
+# ---------------------------------------------------------------
+#  Function: Generate Password
+# ---------------------------------------------------------------
+def generate_password():
+    """Generates a random password based on user preferences."""
+    
+    # Character sets
+    upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    lower = "abcdefghijklmnopqrstuvwxyz"
+    digits = "0123456789"
+    symbols = "!@#$%^&*()-_=+[]{}|;:,.<>?/"
+    
+    # Combine allowed character sets
+    characters = ""
+    if include_upper.get():
+        characters += upper
+    if include_lower.get():
+        characters += lower
+    if include_digits.get():
+        characters += digits
+    if include_symbols.get():
+        characters += symbols
+    
+    # Validation: Password length must be at least 8
+    if length_var.get() < 8:
+        password_var.set("⚠️ Minimum length should be 8!")
+        return
+    
+    # Validation: At least one character set should be selected
+    if not characters:
+        password_var.set("⚠️ Select at least one character type!")
+        return
+    
+    # Generate random password
+    password = ''.join(random.choice(characters) for _ in range(length_var.get()))
+    
+    # Set the generated password to the text box
+    password_var.set(password)
 
-# Function to copy generated password to clipboard
-def copyclipboard():
-    random_password = pswd.get()
-    pyperclip.copy(random_password)
-    Label(tk,text="Copied to Clipboard",bg="red").pack(pady=6)
+# ---------------------------------------------------------------
+#  Function: Copy to Clipboard
+# ---------------------------------------------------------------
+def copy_to_clipboard():
+    """Copies the generated password to the clipboard."""
+    pyperclip.copy(password_var.get())
+    copied_label.config(text="✅ Copied to clipboard!", fg="green")
 
-# Label to display the primary instruction to user to enter the length of passwod he requires
-Label(tk, text="Enter the number to get password \n (Minimum length should be 8)",bg='Blue',fg='white').pack(pady=3)
+# ---------------------------------------------------------------
+#  UI Layout
+# ---------------------------------------------------------------
 
-# To store the entry of user
-Entry(tk, textvariable=passlen).pack(pady=3)
+Label(root, text="🔐 Random Password Generator", font=("Arial", 14, "bold"), bg="#f4f4f4", fg="#333").pack(pady=10)
 
-# To generate Random password and confirmation by the button click
-Button(tk, text="Generate Password", command=password_generator,bg='black',fg='white').pack(pady=7)
-Entry(tk, textvariable=pswd).pack(pady=3)
+# Entry for password length
+frame_length = Frame(root, bg="#f4f4f4")
+frame_length.pack(pady=5)
+Label(frame_length, text="Password Length:", bg="#f4f4f4", font=("Arial", 11)).pack(side=LEFT, padx=5)
+Entry(frame_length, textvariable=length_var, width=8, font=("Arial", 11)).pack(side=LEFT)
 
-Button(tk, text="Copy to clipboard", command=copyclipboard,bg='black',fg='white').pack()
-# To initiate and display the root window we created
-tk.mainloop()
+# Checkboxes for options
+Label(root, text="Include:", bg="#f4f4f4", font=("Arial", 11, "bold")).pack(pady=(10, 0))
+
+Checkbutton(root, text="Uppercase Letters (A-Z)", variable=include_upper, bg="#f4f4f4").pack(anchor=W, padx=60)
+Checkbutton(root, text="Lowercase Letters (a-z)", variable=include_lower, bg="#f4f4f4").pack(anchor=W, padx=60)
+Checkbutton(root, text="Digits (0-9)", variable=include_digits, bg="#f4f4f4").pack(anchor=W, padx=60)
+Checkbutton(root, text="Symbols (!@#$%^&*)", variable=include_symbols, bg="#f4f4f4").pack(anchor=W, padx=60)
+
+# Generate button
+Button(root, text="Generate Password", command=generate_password, bg="#333", fg="white", font=("Arial", 11, "bold"), padx=10, pady=5).pack(pady=10)
+
+# Display generated password
+Entry(root, textvariable=password_var, font=("Arial", 12), width=30, justify='center').pack(pady=5)
+
+# Copy button
+Button(root, text="Copy to Clipboard", command=copy_to_clipboard, bg="#0066cc", fg="white", font=("Arial", 11, "bold")).pack(pady=5)
+
+# Label to show "Copied" message
+copied_label = Label(root, text="", bg="#f4f4f4", font=("Arial", 10))
+copied_label.pack()
+
+# ---------------------------------------------------------------
+#  Run the GUI loop
+# ---------------------------------------------------------------
+root.mainloop()
