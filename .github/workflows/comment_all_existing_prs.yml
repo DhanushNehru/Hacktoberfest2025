@@ -1,0 +1,46 @@
+name: Comment on All Existing PRs
+
+on:
+  workflow_dispatch:  # Manual trigger only
+
+jobs:
+  comment-all-prs:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      
+    steps:
+      - name: Comment on all open PRs
+        uses: actions/github-script@v7
+        with:
+          script: |
+            let page = 1;
+            let hasMore = true;
+            
+            while (hasMore) {
+              const prs = await github.rest.pulls.list({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                state: 'open',
+                per_page: 100,
+                page: page
+              });
+              
+              if (prs.data.length < 100) {
+                hasMore = false;
+              }
+              
+              for (const pr of prs.data) {
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: pr.number,
+                  body: `👋 Thank you for your contribution! Our team will review your pull request soon. \n\n For a list of repositories that contribute towards Hacktoberfest refer [this](https://github.com/DhanushNehru/Hacktoberfest2025/discussions/522) and also join this [discussion](https://github.com/DhanushNehru/Hacktoberfest2025/discussions/405)`
+                });
+                
+                // Add delay to avoid rate limiting
+                await new Promise(resolve => setTimeout(resolve, 1000));
+              }
+              
+              page++;
+            }

@@ -1,0 +1,23 @@
+name: PR Auto Response
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  auto-reply:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      
+    steps:
+      - name: Comment on PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `👋 Thank you for your contribution! Our team will review your pull request soon. \n\n For a list of repositories that contribute towards Hacktoberfest refer [this](https://github.com/DhanushNehru/Hacktoberfest2025/discussions/522) and also join this [discussion](https://github.com/DhanushNehru/Hacktoberfest2025/discussions/405)`
+            })
