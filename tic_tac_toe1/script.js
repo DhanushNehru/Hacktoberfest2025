@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // DOM elements
     const startGameButton = document.getElementById('startGameButton');
     const tryAgainButton = document.getElementById('tryAgainButton');
     const gameBoard = document.getElementById('gameBoard');
@@ -9,21 +10,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const finalScore = document.getElementById('finalScore');
     const gameOverScreen = document.getElementById('gameOverScreen');
 
+    // Game state variables
     let board = ['', '', '', '', '', '', '', '', ''];
     let currentPlayer = 'X';
     let player1Name, player2Name;
     let player1Color, player2Color;
     let isGameActive = true;
 
-    // Update color previews when color inputs change
+    // Color preview logic
     document.getElementById('player1Color').addEventListener('input', (e) => {
         document.getElementById('player1ColorPreview').style.backgroundColor = e.target.value;
     });
-
     document.getElementById('player2Color').addEventListener('input', (e) => {
         document.getElementById('player2ColorPreview').style.backgroundColor = e.target.value;
     });
 
+    // Start game
     startGameButton.addEventListener('click', () => {
         player1Name = document.getElementById('player1Name').value;
         player2Name = document.getElementById('player2Name').value;
@@ -42,10 +44,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Cell click logic
     cells.forEach(cell => {
         cell.addEventListener('click', (e) => {
             const index = e.target.getAttribute('data-index');
-
             if (board[index] === '' && isGameActive) {
                 board[index] = currentPlayer;
                 e.target.textContent = currentPlayer;
@@ -57,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     gameOverScreen.classList.remove('hidden');
                     finalScore.textContent = calculateScore();
                 } else if (board.every(cell => cell !== '')) {
-                    winnerMessage.textContent = 'It\'s a draw!';
+                    winnerMessage.textContent = "It's a draw!";
                     winnerMessage.classList.remove('hidden');
                     gameOverScreen.classList.remove('hidden');
                     isGameActive = false;
@@ -70,29 +72,52 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    tryAgainButton.addEventListener('click', () => {
-        location.reload(); // Refresh the page to restart the game
+    // Try Again button logic
+    tryAgainButtonOver.addEventListener('click', () => {
+        // Reset game state
+        board = ['', '', '', '', '', '', '', '', ''];
+        currentPlayer = 'X';
+        isGameActive = true;
+
+        // Clear all cells and classes
+        cells.forEach(cell => {
+            cell.textContent = '';
+            cell.classList.remove('x', 'o');
+        });
+
+        // Hide winner and game-over messages
+        winnerMessage.classList.add('hidden');
+        gameOverScreen.classList.add('hidden');
+
+        // Reset player display
+        currentPlayerDisplay.textContent = `Current Player: ${player1Name} (X)`;
+        currentPlayerDisplay.style.color = player1Color;
     });
 
+    // Board/UI update helper
+    function updateBoard() {
+        cells.forEach((cell, idx) => {
+            cell.textContent = board[idx];
+            cell.classList.remove('x', 'o');
+            if (board[idx]) cell.classList.add(board[idx].toLowerCase());
+        });
+    }
+
+    // Win logic
     function checkWinner() {
         const winPatterns = [
-            [0, 1, 2],
-            [3, 4, 5],
-            [6, 7, 8],
-            [0, 3, 6],
-            [1, 4, 7],
-            [2, 5, 8],
-            [0, 4, 8],
-            [2, 4, 6]
+            [0, 1, 2], [3, 4, 5], [6, 7, 8],
+            [0, 3, 6], [1, 4, 7], [2, 5, 8],
+            [0, 4, 8], [2, 4, 6]
         ];
-
         return winPatterns.some(pattern => {
             const [a, b, c] = pattern;
             return board[a] && board[a] === board[b] && board[a] === board[c];
         });
     }
 
+    // Simple score calculation
     function calculateScore() {
-        return 100; // Placeholder score
+        return 100; // Placeholder, update for real scoring if needed
     }
 });
