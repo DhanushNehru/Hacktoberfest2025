@@ -1,0 +1,74 @@
+print("🍏 Learn the Basics of Lists and Loops in Python 🍊")
+print("-" * 60)
+
+# Creating a list
+fruits = ["apple", "banana", "cherry", "mango"]
+print("Our fruits list:", fruits)
+
+print("\n🔹 Accessing Elements")
+print("First fruit:", fruits[0])
+print("Last fruit:", fruits[-1])  # using negative index
+
+print("\n🔹 Slicing the List")
+print("Fruits from index 1 to 2:", fruits[1:3])
+print("First three fruits:", fruits[:3])
+print("Fruits from index 2 to end:", fruits[2:])
+
+print("\n🔹 Modifying the List")
+fruits.append("orange")
+print("After adding orange:", fruits)
+
+fruits.insert(2, "grape")
+print("After inserting grape at index 2:", fruits)
+
+fruits.remove("banana")
+print("After removing banana:", fruits)
+
+popped_item = fruits.pop()  # removes last item
+print(f"After popping '{popped_item}':", fruits)
+
+print("\n🔹 Sorting and Reversing")
+fruits.sort()
+print("Sorted list:", fruits)
+fruits.reverse()
+print("Reversed list:", fruits)
+
+print("\n🔹 Looping Through the List")
+print("Let's print each fruit in uppercase:")
+for fruit in fruits:
+    print(fruit.upper())
+
+print("\n🔹 Using Loops with Conditions")
+print("Fruits that start with 'a':")
+for fruit in fruits:
+    if fruit.startswith("a"):
+        print(fruit)
+
+print("\n🔹 List Comprehension")
+lengths = [len(fruit) for fruit in fruits]
+print("Length of each fruit name:", lengths)
+
+upper_fruits = [fruit.upper() for fruit in fruits if len(fruit) > 5]
+print("Fruits with more than 5 letters (uppercase):", upper_fruits)
+
+print("\n🔹 Combining Lists")
+tropical = ["pineapple", "papaya", "kiwi"]
+all_fruits = fruits + tropical
+print("Combined list of all fruits:", all_fruits)
+
+print("\n🔹 Nested Lists Example")
+nested = [["apple", "banana"], ["carrot", "tomato"]]
+print("Nested list:", nested)
+print("Access 'tomato' ->", nested[1][1])
+
+print("\n🔹 Counting and Index Methods")
+all_fruits.append("apple")
+print("List with duplicate 'apple':", all_fruits)
+print("Count of 'apple':", all_fruits.count("apple"))
+print("Index of 'mango':", all_fruits.index("mango"))
+
+print("\n🍉 Summary")
+print("We explored creating, modifying, looping, and combining lists!")
+print("Lists are super versatile — they can store any type of data and be nested!")
+print("-" * 60)
+print("🎉 Enjoy exploring even more list functions like copy(), clear(), and extend()!")
