@@ -1,0 +1,29 @@
+def bucket_sort(arr):
+    if len(arr) == 0:
+        return arr
+
+    # 1. Create buckets
+    bucket_count = len(arr)
+    buckets = [[] for _ in range(bucket_count)]
+
+    # 2. Put elements into buckets
+    max_value = max(arr)
+    for num in arr:
+        index = int((num / (max_value + 1)) * bucket_count)
+        buckets[index].append(num)
+
+    # 3. Sort each bucket individually
+    for i in range(bucket_count):
+        buckets[i].sort()
+
+    # 4. Merge all buckets
+    sorted_arr = []
+    for bucket in buckets:
+        sorted_arr.extend(bucket)
+
+    return sorted_arr
+
+
+# Example
+arr = [0.42, 0.32, 0.23, 0.52, 0.25, 0.47, 0.51]
+print(bucket_sort(arr))
