@@ -1,0 +1,66 @@
+#include <iostream>
+using namespace std;
+
+// Linear Search Function
+int linearSearch(int arr[], int n, int key, int &comparisons) {
+    comparisons = 0;
+    for (int i = 0; i < n; i++) {
+        comparisons++;
+        if (arr[i] == key) {
+            return i; // return index if found
+        }
+    }
+    return -1; // not found
+}
+
+// Binary Search Function
+int binarySearch(int arr[], int n, int key, int &comparisons) {
+    int low = 0, high = n - 1;
+    comparisons = 0;
+
+    while (low <= high) {
+        int mid = (low + high) / 2;
+        comparisons++;
+
+        if (arr[mid] == key) {
+            return mid; // found
+        }
+        else if (arr[mid] < key) {
+            low = mid + 1;
+        }
+        else {
+            high = mid - 1;
+        }
+    }
+    return -1; // not found
+}
+
+int main() {
+    // Student ID array (already sorted for Binary Search)
+    int studentIDs[10] = {101, 105, 110, 120, 125, 130, 140, 150, 160, 170};
+    int n = 10;
+    int key;
+
+    cout << "Enter Student ID to search: ";
+    cin >> key;
+
+    int comparisons;
+
+    // Linear Search
+    int linearIndex = linearSearch(studentIDs, n, key, comparisons);
+    if (linearIndex != -1)
+        cout << "Linear Search → Found at index " << linearIndex 
+             << " (Comparisons: " << comparisons << ")" << endl;
+    else
+        cout << "Linear Search → Not Found (Comparisons: " << comparisons << ")" << endl;
+
+    // Binary Search
+    int binaryIndex = binarySearch(studentIDs, n, key, comparisons);
+    if (binaryIndex != -1)
+        cout << "Binary Search → Found at index " << binaryIndex 
+             << " (Comparisons: " << comparisons << ")" << endl;
+    else
+        cout << "Binary Search → Not Found (Comparisons: " << comparisons << ")" << endl;
+
+    return 0;
+}
