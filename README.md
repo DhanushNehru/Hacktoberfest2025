@@ -5,7 +5,9 @@
 [![Subscribe on YouTube](https://img.shields.io/badge/YouTube-Subscribe-red?logo=youtube&style=for-the-badge)](https://www.youtube.com/@dhanushnehru?sub_confirmation=1)
 [![Subscribe to Newsletter](https://img.shields.io/badge/Newsletter-Subscribe-orange?style=for-the-badge)](https://dhanushn.substack.com/)
 
-Hacktoberfest 2025 OPEN FIRST Pull Request - SUPPORT OPEN SOURCE
+🎉 **Hacktoberfest 2025** — Make your first Pull Request and support open source! ❤️  
+Don’t forget to spread the love and ⭐ the repository if you enjoy it!
+
 
 ![HacktoberFest 2025](https://github.com/DhanushNehru/Hacktoberfest/raw/main/.github/logo.png)
 
@@ -13,7 +15,7 @@ Hacktoberfest 2025 OPEN FIRST Pull Request - SUPPORT OPEN SOURCE
 
 🗣 **Hacktoberfest encourages participation in the open-source community, which grows bigger every year. Complete the challenge as a part of your opensource journey.**
 
-📢 **Register [here](https://hacktoberfest.com) for Hacktoberfest and make four pull requests (PRs) between October 1st-31st to grab free SWAGS 🔥.**
+📝 **Register for Hacktoberfest** at [hacktoberfest.com](https://hacktoberfest.com) and submit **at least 4 qualifying Pull Requests (PRs)** between **October 1 and October 31** to earn cool swag! 🎁
 
 <div align="center">
 
