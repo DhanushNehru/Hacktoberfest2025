@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="description" content="Portfolio of Mohammed Roshan T — Cybersecurity Aspirant, Developer, CSE student, MERN stack learner, DevOps enthusiast." />
+    <title>Mohammed Roshan T — Portfolio</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2300f6ff;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23ff6ad5;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' fill='%230a0a0a'/%3E%3Cpath d='M8 8h16v2H8zm0 4h16v2H8zm0 4h12v2H8zm0 4h8v2H8z' fill='url(%23grad)'/%3E%3Ccircle cx='24' cy='24' r='3' fill='%2300f6ff' opacity='0.6'/%3E%3C/svg%3E" />
+    <link rel="alternate icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230a0a0a'/%3E%3Cpath d='M4 4h8v1H4zm0 2h8v1H4zm0 2h6v1H4zm0 2h4v1H4z' fill='%2300f6ff'/%3E%3Ccircle cx='12' cy='12' r='1.5' fill='%2300f6ff' opacity='0.6'/%3E%3C/svg%3E" />
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' fill='%230a0a0a'/%3E%3Cpath d='M45 45h90v11H45zm0 22h90v11H45zm0 22h68v11H45zm0 22h45v11H45z' fill='%2300f6ff'/%3E%3Ccircle cx='135' cy='135' r='17' fill='%2300f6ff' opacity='0.6'/%3E%3C/svg%3E" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+    <!-- Icons (Font Awesome) -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css" crossorigin="anonymous" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <noscript>
+      For the best experience, please enable JavaScript. This site uses subtle animations.
+    </noscript>
+
+    <!-- Header / Navbar -->
+    <header id="top" class="site-header" role="banner">
+      <nav class="nav" aria-label="Primary Navigation">
+        <a class="nav__brand" href="#top" aria-label="Home">
+          <span class="logo-mark" aria-hidden="true">▮</span>
+          <span class="logo-text">M. Roshan T.</span>
+        </a>
+        <button class="nav__toggle" aria-expanded="false" aria-controls="navMenu" aria-label="Toggle Menu">
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+        </button>
+        <ul id="navMenu" class="nav__menu">
+          <li><a href="#about" class="nav__link">About</a></li>
+          <li><a href="#skills" class="nav__link">Skills</a></li>
+          <li><a href="#projects" class="nav__link">Projects</a></li>
+          <li><a href="#contact" class="nav__link">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main" class="main-content" role="main">
+      <!-- Hero Section -->
+      <section id="hero" class="section hero" aria-label="Hero">
+        <div class="hero__bg" aria-hidden="true">
+          <!-- Canvas-based particles injected by JS -->
+          <canvas id="heroParticles" class="hero__canvas"></canvas>
+          <div class="hero__grid-overlay" aria-hidden="true"></div>
+        </div>
+
+        <div class="container hero__inner">
+          <div class="hero__content" data-animate="fade-up">
+            <h1 class="hero__title">Mohammed Roshan T</h1>
+            <p class="hero__subtitle">
+              <span class="typewriter" aria-live="polite" aria-atomic="true">
+                <span class="typewriter__text">Cybersecurity Aspirant</span>
+                <span class="typewriter__cursor" aria-hidden="true">▌</span>
+              </span>
+            </p>
+
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="#projects">Explore My Work</a>
+              <div class="socials" aria-label="Social Links">
+                <a class="socials__link" href="https://github.com/mohammedroshant" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a class="socials__link" href="https://linkedin.com/in/mohammed-roshan-t" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+                <a class="socials__link" href="https://twitter.com/roshan_exe" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="section about" aria-labelledby="about-title">
+        <div class="container">
+          <header class="section__header" data-animate="fade-in">
+            <h2 id="about-title" class="section__title">About Me</h2>
+          </header>
+          <div class="about__grid">
+            <div class="about__media" data-animate="fade-right">
+              <div class="avatar avatar--glow" aria-label="Profile Image">
+                <img src="https://github.com/mohammedroshant.png" alt="Portrait of Mohammed Roshan T" loading="lazy" />
+              </div>
+            </div>
+            <div class="about__content" data-animate="fade-left">
+              <p>
+                A passionate Computer Science student and cybersecurity aspirant, navigating the digital landscape with a strong focus on securing applications using the MERN stack and delving into the intricacies of DevOps. I am driven by the challenge of creating robust, secure solutions and am continuously expanding my knowledge in cybersecurity, ethical hacking, and the ever-evolving world of technology.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="section skills" aria-labelledby="skills-title">
+        <div class="container">
+          <header class="section__header" data-animate="fade-in">
+            <h2 id="skills-title" class="section__title">My Tech Stack</h2>
+          </header>
+          <ul class="skills__grid" role="list">
+            <li class="skill" data-animate="zoom-in" aria-label="Cybersecurity"><i class="fas fa-shield-alt"></i><span>Cybersecurity</span></li>
+            <li class="skill" data-animate="zoom-in" aria-label="Ethical Hacking"><i class="fas fa-user-secret"></i><span>Ethical Hacking</span></li>
+            <li class="skill" data-animate="zoom-in" aria-label="JavaScript"><i class="fab fa-js"></i><span>JavaScript</span></li>
+            <li class="skill" data-animate="zoom-in" aria-label="React"><i class="fab fa-react"></i><span>React</span></li>
+            <li class="skill" data-animate="zoom-in" aria-label="Node.js"><i class="fab fa-node-js"></i><span>Node.js</span></li>
+            <li class="skill" data-animate="zoom-in" aria-label="Express.js"><i class="fas fa-server"></i><span>Express.js</span></li>
+            <li class="skill" data-animate="zoom-in" aria-label="MongoDB"><i class="fas fa-database"></i><span>MongoDB</span></li>
+            <li class="skill" data-animate="zoom-in" aria-label="Python"><i class="fab fa-python"></i><span>Python</span></li>
+            <li class="skill" data-animate="zoom-in" aria-label="Linux"><i class="fab fa-linux"></i><span>Linux</span></li>
+            <li class="skill" data-animate="zoom-in" aria-label="DevOps"><i class="fas fa-cogs"></i><span>DevOps</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="section projects" aria-labelledby="projects-title">
+        <div class="container">
+          <header class="section__header" data-animate="fade-in">
+            <h2 id="projects-title" class="section__title">Digital Creations</h2>
+          </header>
+
+          <div class="projects__grid">
+            <!-- Project 1 -->
+            <article class="project-card" data-tilt data-animate="fade-up">
+              <div class="project-card__inner">
+                <h3 class="project-card__title">E-commerce MERN App</h3>
+                <p class="project-card__desc">A robust, full-spectrum e-commerce platform engineered with the MERN stack, featuring secure transactions, product management, and user authentication.</p>
+                <ul class="project-card__tags" role="list">
+                  <li>MERN</li><li>React</li><li>Node.js</li><li>Express</li><li>MongoDB</li>
+                </ul>
+                <div class="project-card__links">
+                  <a class="btn btn--ghost" href="https://github.com/mohammedroshant/e-commerce-mern" target="_blank" rel="noopener noreferrer">GitHub</a>
+                  <a class="btn btn--secondary" href="#" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 2 -->
+            <article class="project-card" data-tilt data-animate="fade-up">
+              <div class="project-card__inner">
+                <h3 class="project-card__title">Resume-Builder</h3>
+                <p class="project-card__desc">An intuitive web-based interface for rapidly generating and customizing professional resumes with precision and ease.</p>
+                <ul class="project-card__tags" role="list">
+                  <li>HTML</li><li>CSS</li><li>JavaScript</li>
+                </ul>
+                <div class="project-card__links">
+                  <a class="btn btn--ghost" href="https://github.com/mohammedroshant/Resume-Builder" target="_blank" rel="noopener noreferrer">GitHub</a>
+                  <a class="btn btn--secondary" href="#" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 3 -->
+            <article class="project-card" data-tilt data-animate="fade-up">
+              <div class="project-card__inner">
+                <h3 class="project-card__title">Netflix Clone</h3>
+                <p class="project-card__desc">A dynamic replica of the Netflix user interface, dynamically fetching content via the TMDB API, optimized for a responsive viewing experience.</p>
+                <ul class="project-card__tags" role="list">
+                  <li>React</li><li>API</li><li>CSS</li>
+                </ul>
+                <div class="project-card__links">
+                  <a class="btn btn--ghost" href="https://github.com/mohammedroshant/Netflix-Clone" target="_blank" rel="noopener noreferrer">GitHub</a>
+                  <a class="btn btn--secondary" href="#" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 4 -->
+            <article class="project-card" data-tilt data-animate="fade-up">
+              <div class="project-card__inner">
+                <h3 class="project-card__title">Weather App</h3>
+                <p class="project-card__desc">A real-time atmospheric data query system, providing instant weather insights for any global coordinates using external API integration.</p>
+                <ul class="project-card__tags" role="list">
+                  <li>JavaScript</li><li>HTML</li><li>CSS</li><li>API</li>
+                </ul>
+                <div class="project-card__links">
+                  <a class="btn btn--ghost" href="https://github.com/mohammedroshant/Weather-app" target="_blank" rel="noopener noreferrer">GitHub</a>
+                  <a class="btn btn--secondary" href="#" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="section contact" aria-labelledby="contact-title">
+        <div class="container">
+          <header class="section__header" data-animate="fade-in">
+            <h2 id="contact-title" class="section__title">Get In Touch</h2>
+          </header>
+          <div class="contact__content" data-animate="fade-up">
+            <p>My comms channel is always open. Whether you're seeking collaboration, have a query, or simply wish to connect, I'm ready to respond to your transmission.</p>
+            <div class="contact__actions">
+              <a class="btn btn--primary btn--xl" href="mailto:roshan.t.dev@email.com">Connect Via Email</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="container footer__inner">
+        <p>
+          <span>Code &amp; Design by Mohammed Roshan T</span>
+          <span class="separator" aria-hidden="true">—</span>
+          <span id="currentYear"></span>
+        </p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script defer src="script.js"></script>
+  </body>
+  </html>
+
+
