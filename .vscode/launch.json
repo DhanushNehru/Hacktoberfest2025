@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "MergeTwoSortedArray",
+      "request": "launch",
+      "mainClass": "Java.MergeTwoSortedArray",
+      "projectName": "Hacktoberfest2025_629cbf47"
+    },
+    {
+      "type": "java",
       "name": "Roulette",
       "request": "launch",
       "mainClass": "Java.Roulette",
