@@ -1,47 +1,40 @@
 'use strict';
 
 const fs = require('fs');
+const readline = require('readline');
 
-process.stdin.resume();
-process.stdin.setEncoding('utf-8');
-
-let inputString = '';
-let currentLine = 0;
-
-process.stdin.on('data', function(inputStdin) {
-    inputString += inputStdin;
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+    terminal: false
 });
 
-process.stdin.on('end', function() {
-    inputString = inputString.trim().split('\n');
-    main();
-});
-
-function readLine() {
-    return inputString[currentLine++];
-}
-
-function timeConversion(s) {
-    const period = s.slice(-2);  // Extract AM or PM
-    let hour = parseInt(s.slice(0, 2));  // Extract hour as an integer
-    const rest = s.slice(2, 8);  // Extract the remaining time part (minutes and seconds)
-
-    if (period === 'AM') {
-        if (hour === 12) {
-            hour = 0;  // Midnight case: 12 AM -> 00
-        }
-    } else {  // PM case
-        if (hour !== 12) {
-            hour += 12;  // Convert PM hour (except 12 PM)
-        }
+const timeConversion = (timeStr) => {
+    const trimmed = timeStr.trim().toUpperCase();
+    if (!/^(0[0-9]|1[0-2]):[0-5][0-9]:[0-5][0-9](AM|PM)$/.test(trimmed)) {
+        throw new Error('Invalid time format. Expected hh:mm:ssAM or hh:mm:ssPM');
     }
 
-    const hourStr = hour < 10 ? '0' + hour : hour.toString();  // Ensure two-digit hour format
-    return hourStr + rest;
-}
+    const period = trimmed.slice(-2);
+    let [hour, minute, second] = trimmed.slice(0, -2).split(':').map(Number);
 
-function main() {
-    const s = readLine();
-    const result = timeConversion(s);
-    console.log(result);
-}
+    if (period === 'AM' && hour === 12) hour = 0;
+    if (period === 'PM' && hour !== 12) hour += 12;
+
+    const formattedHour = hour.toString().padStart(2, '0');
+    return `${formattedHour}:${minute.toString().padStart(2, '0')}:${second.toString().padStart(2, '0')}`;
+};
+
+const main = async () => {
+    for await (const line of rl) {
+        try {
+            const result = timeConversion(line);
+            console.log(result);
+        } catch (error) {
+            console.error(error.message);
+        }
+        rl.close();
+    }
+};
+
+main();
