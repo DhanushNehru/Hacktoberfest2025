@@ -152,10 +152,10 @@ Create/Upload your code in the folder following the convention `Add Code Here`
 - Below is `an example` to add file properly
 - You can follow up `any languages`
 ```
-Add Code Here/PYTHON/<YOUR-FILERNAME>.py
+Add Code Here/PYTHON/<YOUR-FILENAME>.py
 ```
 ```
-Add Code Here/C++/<YOUR-FILERNAME>.cpp
+Add Code Here/C++/<YOUR-FILENAME>.cpp
 ```
 You can follow any pathway a `code` or `profile information`
 
